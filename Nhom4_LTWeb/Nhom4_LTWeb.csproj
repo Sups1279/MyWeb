@@ -144,15 +144,24 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\index.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\anime-goblin-slayer-onna-shinkan-wallpaper-preview.jpg" />
+    <Content Include="image\download %281%29.jpg" />
+    <Content Include="image\goblin_SL.jpg" />
+    <Content Include="image\logo.png" />
+    <Content Include="image\yck5pgoudbuw_sjiz62z2u8nta-06bkv_66gcq_byom.jpeg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="image\ainz-ooal-gown-overlord-1536946465950266400125.webp" />
+    <Content Include="image\Devil-Form-of-Pochita.webp" />
+    <Content Include="image\photo-3-158002976303035212321.webp" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -180,6 +189,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Shop\HeaderWebPartial.cshtml" />
+    <Content Include="Views\Shop\NavPartial.cshtml" />
+    <Content Include="Views\Shop\NavQCPartial.cshtml" />
+    <Content Include="Views\Shop\FooterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

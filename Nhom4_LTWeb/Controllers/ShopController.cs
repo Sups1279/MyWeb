@@ -13,5 +13,21 @@ namespace Nhom4_LTWeb.Controllers
         {
             return View();
         }
+        public ActionResult HeaderWebPartial()
+        {
+            return PartialView();
+        }
+        public ActionResult NavPartial()
+        {
+            return PartialView();
+        }
+        public ActionResult NavQCPartial()
+        {
+            return PartialView();
+        }
+        public ActionResult FooterPartial()
+        {
+            return PartialView();
+        }
     }
 }
