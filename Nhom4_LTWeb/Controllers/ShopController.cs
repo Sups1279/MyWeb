@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nhom4_LTWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,14 @@ namespace Nhom4_LTWeb.Controllers
     public class ShopController : Controller
     {
         // GET: Shop
+
+        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=LAPTOP-VC5IF5QK/SQLEXPRESS;Initial Catalog=ComputerMuda;Integrated Security=True");
+
+
         public ActionResult Index()
         {
-            return View();
+            var SP = (from c in db.SANPHAMs select c).ToList();
+            return View(SP);
         }
         public ActionResult HeaderWebPartial()
         {
