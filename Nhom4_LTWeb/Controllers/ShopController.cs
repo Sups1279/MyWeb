@@ -10,14 +10,12 @@ namespace Nhom4_LTWeb.Controllers
     public class ShopController : Controller
     {
         // GET: Shop
-
-        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=LAPTOP-VC5IF5QK/SQLEXPRESS;Initial Catalog=ComputerMuda;Integrated Security=True");
-
+        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=LAPTOP-VC5IF5QK\\SQLEXPRESS;Initial Catalog=ComputerMuda;Integrated Security=True");
 
         public ActionResult Index()
         {
-            var SP = (from c in db.SANPHAMs select c).ToList();
-            return View(SP);
+            var SP = from c in db.SANPHAMs select c;
+            return View(SP.ToList());
         }
         public ActionResult HeaderWebPartial()
         {
@@ -34,6 +32,11 @@ namespace Nhom4_LTWeb.Controllers
         public ActionResult FooterPartial()
         {
             return PartialView();
+        }
+        public ActionResult ItemPartial()
+        {
+            var i = from c in db.SANPHAMs select c;
+            return PartialView(i.ToList());
         }
     }
 }

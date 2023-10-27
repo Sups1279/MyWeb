@@ -77,3 +77,7 @@ D:\MyWebOffical\MyWeb\Nhom4_LTWeb\obj\Debug\Nhom4_LTWeb.csproj.CoreCompileInputs
 D:\MyWebOffical\MyWeb\Nhom4_LTWeb\obj\Debug\Nhom4_LTWeb.csproj.CopyComplete
 D:\MyWebOffical\MyWeb\Nhom4_LTWeb\obj\Debug\Nhom4_LTWeb.dll
 D:\MyWebOffical\MyWeb\Nhom4_LTWeb\obj\Debug\Nhom4_LTWeb.pdb
+D:\MyWebOffical\MyWeb\Nhom4_LTWeb\bin\EntityFramework.dll
+D:\MyWebOffical\MyWeb\Nhom4_LTWeb\bin\EntityFramework.SqlServer.dll
+D:\MyWebOffical\MyWeb\Nhom4_LTWeb\bin\EntityFramework.xml
+D:\MyWebOffical\MyWeb\Nhom4_LTWeb\bin\EntityFramework.SqlServer.xml

@@ -9,8 +9,8 @@ namespace Nhom4_LTWeb.Models
     public class ConectionDaTa
     {
         static ConectionDaTa cond;
-        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=LAPTOP-VC5IF5QK/SQLEXPRESS;Initial Catalog=ComputerMuda;Integrated Security=True");
-        private ConectionDaTa()
+        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=LAPTOP-VC5IF5QK\\SQLEXPRESS;Initial Catalog=ComputerMuda;Integrated Security=True");
+         private ConectionDaTa()
         {
 
         }
