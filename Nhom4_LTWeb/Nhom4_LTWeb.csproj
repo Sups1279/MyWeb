@@ -159,9 +159,6 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="image\ainz-ooal-gown-overlord-1536946465950266400125.webp" />
-    <Content Include="image\Devil-Form-of-Pochita.webp" />
-    <Content Include="image\photo-3-158002976303035212321.webp" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
