@@ -1,24 +1,24 @@
-﻿using System;
+﻿using Nhom4_LTWeb.Models;
+using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
 using System.Web;
 
-namespace Nhom4_LTWeb.Models
+namespace Nhom4_LTWeb.Class
 {
-    public class ConectionDaTa
+    public class ConnectData
     {
-        static ConectionDaTa cond;
+        static ConnectData cond;
         DbMyWebDataContext db = new DbMyWebDataContext("Data Source=LAPTOP-VC5IF5QK\\SQLEXPRESS;Initial Catalog=ComputerMuda;Integrated Security=True");
-         private ConectionDaTa()
+        private ConnectData()
         {
 
         }
-        public static ConectionDaTa Cond()
+        public static ConnectData Cond()
         {
-            if(cond == null)
+            if (cond == null)
             {
-                cond = new ConectionDaTa();
+                cond = new ConnectData();
             }
             return cond;
         }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Nhom4_LTWeb.Models;
 
 namespace Nhom4_LTWeb.Controllers
 {
@@ -14,8 +15,12 @@ namespace Nhom4_LTWeb.Controllers
 
         public ActionResult Index()
         {
-            var SP = from c in db.SANPHAMs select c;
-            return View(SP.ToList());
+            GetALLModel dulieu = new GetALLModel();
+            dulieu.GetSANPHAMModels = db.SANPHAMs.ToList();
+            dulieu.GetHANGModels = db.HANGs.ToList();   
+            dulieu.GetsLOAISPModels = db.LOAISPs.ToList();
+            
+            return View(dulieu);
         }
         public ActionResult HeaderWebPartial()
         {
@@ -35,8 +40,7 @@ namespace Nhom4_LTWeb.Controllers
         }
         public ActionResult ItemPartial()
         {
-            var i = from c in db.SANPHAMs select c;
-            return PartialView(i.ToList());
+            return PartialView();
         }
     }
 }
