@@ -19,6 +19,7 @@ namespace Nhom4_LTWeb.Controllers
             dulieu.GetSANPHAMModels = db.SANPHAMs.ToList();
             dulieu.GetHANGModels = db.HANGs.ToList();   
             dulieu.GetsLOAISPModels = db.LOAISPs.ToList();
+            dulieu.GetHANG_LOAISPModels = db.HANG_LOAISPs.ToList();
             
             return View(dulieu);
         }

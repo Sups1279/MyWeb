@@ -13,27 +13,33 @@
                 <div class="nav-item">
                     <a class="nav-link bg-danger text-white active" aria-current="page" href="#"><h1>@item.TenLoaiSP</h1></a>
                 </div>
-                <div class="nav navbar-expand-lg ">
-                    @foreach (var item1 in Model.GetHANGModels)
-                    {
-                        <li class="align-self-center nav-item mx-2"><a class="nav-link btn btn-danger text-bg-danger" role="button" href="#"><h4>@item1.TenHang</h4></a></li>
-                    }
-                    <li class="align-self-center nav-item mx-2"><a class="nav-link btn btn-danger text-bg-danger" role="button" href="#"><h4>Xem tất cả</h4></a></li>
+                <div class="nav-item">
+                    
                 </div>
-            </div>
+                <div class="nav navbar-expand-lg ">
+                    @foreach (var item1 in Model.GetHANG_LOAISPModels.Where(n => n.MaLSP == item.MaLSP))
+                    {
+                        foreach (var item2 in Model.GetHANGModels.Where(c => c.MaHang == @item1.MaHang))
+                        {
+                           <li class="align-self-center nav-item mx-1"><a class="nav-link text-bg-danger rounded-1 px-1" role="button" href="#"><p class="MYSP m-0 fw-bold">@item2.TenHang</p></a></li>
+                        }
+                    }
+                    <li class="align-self-center nav-item mx-1"><a class="nav-link text-bg-danger rounded-1 px-1" role="button" href="#"><p class="MYSP m-0 fw-bold">Xem tất cả</p></a></li>
+                </div>
+            </div> 
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12">
                     <div class="row py-3">
                         <div class="owl-carousel owl-theme">
-                            @foreach (var item2 in Model.GetSANPHAMModels)
+                            @foreach (var item3 in Model.GetSANPHAMModels)
                             {
                                 <div class="img-thumbnail container item">
                                     <a href="#" style="text-decoration:none;">
                                         <div class="~/image"><img src="~/image/download (1).jpg" alt="" srcset="" class="container"></div>
                                         <div class="container-fluid mb-4">
-                                            <h3 class="fw-bold nameproduct py-3 text-dark">@item2.TenSP</h3>
+                                            <h3 class="fw-bold nameproduct py-3 text-dark">@item3.TenSP</h3>
                                             <div class="gia">
-                                                 <p class="fw-bold text-danger mx-0">@item2.GiaSP đ</p>
+                                                 <p class="fw-bold text-danger mx-0">@item3.GiaSP đ</p>
                                                 <div class="gialendoi d-flex">
                                                     <p class="font-italic align-self-center text-dark" style="font-size: 13px;">Giá lên đời:</p>
                                                     <p class="fw-bold text-danger">19.999.999 đ</p>
