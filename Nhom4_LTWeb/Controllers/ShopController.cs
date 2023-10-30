@@ -23,6 +23,18 @@ namespace Nhom4_LTWeb.Controllers
             
             return View(dulieu);
         }
+        public ActionResult Details(int masp)
+        {
+            GetALLModel dulieu = new GetALLModel();
+            dulieu.GetSANPHAMModels = db.SANPHAMs.Where(n=>n.MaSP == masp).ToList();
+            dulieu.GetHANGModels = db.HANGs.ToList();
+            dulieu.GetsLOAISPModels = db.LOAISPs.ToList();
+            dulieu.GetHANG_LOAISPModels = db.HANG_LOAISPs.ToList();
+            dulieu.GetCHITIET_SPModels =db.CHITIET_SPs.ToList();
+            dulieu.GetTHE_CHITIETModels = db.THE_CHITIETs.ToList();
+            dulieu.GetTHEModels = db.THEs.ToList();
+            return View(dulieu);
+        }
         public ActionResult HeaderWebPartial()
         {
             return PartialView();
