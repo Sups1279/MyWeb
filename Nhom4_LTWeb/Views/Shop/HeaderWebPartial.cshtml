@@ -1,4 +1,9 @@
-﻿<section class="myHeader">
+﻿@{ 
+    Nhom4_LTWeb.Models.KHACHHANG kh = (Nhom4_LTWeb.Models.KHACHHANG)Session["UserName"];
+    Session["null"] = null;
+}
+
+<section class="myHeader">
     <div class="container py-3 ">
         <div class="row">
             <div class="col-md-2 col-sm-12 py-sm img-fluid"><img src="~/image/logo.png" alt="" srcset=""></div>
@@ -14,18 +19,48 @@
                 </div>
             </div>
 
-            <div class="col-md-2">
-                <div class="row">
-                    <div class="col-md-3">
-                        <a href="" class="text-danger"><i class="fa-solid fa-user py-3"></i></a>
-                    </div>
-                    <div class="col-md-3"><a href=""  class="text-danger"><i class="fa-solid fa-address-book py-3"></i></a></div>
+            @if (kh != null)
+            {
+                <div class="col-md-2">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="#" class="fa-solid fa-arrow-right-from-bracket py-3 text-danger" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item"><a href="@Url.Action("ThongTin", "Account", new {id=kh.MaTK})">Thông tin</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-item"><a href="@Url.Action("DangXuat", "Account")">Đăng xuất</a></li>
+                            </ul>
+                        </div>
 
-                    <div class="col-md-3">
-                       <a href="" class="text-danger"><i class="fa-solid fa-cart-shopping py-3"></i></a>
+                        <div class="col-md-3"><a href="" class="text-danger"><i class="fa-solid fa-address-book py-3"></i></a></div>
+
+                        <div class="col-md-3">
+                            <a href="" class="text-danger"><i class="fa-solid fa-cart-shopping py-3"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
+            else
+            {
+                <div class="col-md-2">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="#" class="fa-solid fa-user py-3 text-danger" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item"><a href="@Url.Action("DangKy", "Account")">Đăng ký</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-item"><a href="@Url.Action("DangNhap", "Account")">Đăng nhập</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3"><a href="" class="text-danger"><i class="fa-solid fa-address-book py-3"></i></a></div>
+
+                        <div class="col-md-3">
+                            <a href="" class="text-danger"><i class="fa-solid fa-cart-shopping py-3"></i></a>
+                        </div>
+                    </div>
+                </div>
+            }
 
         </div>
     </div>
