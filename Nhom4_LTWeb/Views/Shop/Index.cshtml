@@ -31,7 +31,7 @@
                 <div class="col-md-12 col-lg-12 col-sm-12">
                     <div class="row py-3">
                         <div class="owl-carousel owl-theme">
-                            @foreach (var item3 in Model.GetSANPHAMModels)
+                            @foreach (var item3 in Model.GetSANPHAMModels.Where(n=>n.MaLSP == item.MaLSP))
                             {
                                 <div class="img-thumbnail container item">
                                     <a href="#" style="text-decoration:none;">
