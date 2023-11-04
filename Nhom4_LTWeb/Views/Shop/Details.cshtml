@@ -53,13 +53,16 @@
                     <table class="table table-striped">
                         <thead>
                         <tbody>
-                          
+                            @foreach (var item2 in Model.GetCHITIET_SPModels.Where(n => n.MaSP == item.MaSP))
+                            {
                                 <tr>
-                                
-                                    <th scope="row"></th>
-                                    <td>Otto</td>
+
+                                    <th scope="row">@Model.GetTHEModels.Where(n => n.MaTH == item2.MaTH).Select(n => n.TenThe).SingleOrDefault()</th>
+
+                                    <th scope="row">@Model.GetTHE_CHITIETModels.Where(n=>n.MaThongSo == item2.MaThongSo).Select(n=>n.ThongSo).SingleOrDefault()</th>
                                 </tr>
-                        </tbody>
+                            }
+                            </tbody>
                     </table>
 
 
@@ -82,35 +85,20 @@
                                     <table class="table table-striped">
                                         <thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">Kích thước màn hình</th>
-                                                <td>Otto</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Công nghệ màn hình</th>
-                                                <td>Otto</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Camera sau</th>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Chipset</th>
-                                                <td>Otto</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Hệ điều hành</th>
-                                                <td>Otto</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Tính năng màn hình</th>
-                                                <td>Otto</td>
-                                            </tr>
+                                            @foreach (var item2 in Model.GetCHITIET_SPModels.Where(n => n.MaSP == item.MaSP))
+                                            {
+                                                <tr>
+
+                                                    <th scope="row">@Model.GetTHEModels.Where(n => n.MaTH == item2.MaTH).Select(n => n.TenThe).SingleOrDefault()</th>
+
+                                                    <th scope="row">@Model.GetTHE_CHITIETModels.Where(n => n.MaThongSo == item2.MaThongSo).Select(n => n.ThongSo).SingleOrDefault()</th>
+                                                </tr>
+                                            }
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +113,7 @@
                             <a class="nav-link bg-danger text-white active" aria-current="page" href="#"><h5>MÔ TẢ SẢN PHẨM</h5></a>
                         </div>
                     </div>
-                    ~Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic cupiditate possimus obcaecati dolorem cumque deleniti nihil pariatur delectus fuga sequi? Perspiciatis, quae neque! Voluptatibus officiis vel nobis quo, deserunt ~Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, voluptate! Itaque, laudantium. Illo itaque necessitatibus, neque ullam sint asperiores cumque? Placeat alias quidem illo architecto iusto odit cupiditate facere incidunt.~Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos asperiores voluptatibus veniam recusandae ullam sunt possimus ex, quisquam iste iusto amet soluta eligendi inventore quo corrupti quod ratione, sit ad!
+                        @item.MoTa   
                 </div>
             </div>
             <div class="row">
