@@ -31,18 +31,18 @@
                     <div class="col-md-12 col-lg-12 col-sm-12">
                         <div class="row py-3">
                             <div class="owl-carousel owl-theme">
-                                @foreach (var item3 in Model.GetSANPHAMModels.Where(n => n.MaLSP == item.MaLSP))
+                                @foreach (var sanpham in Model.GetSANPHAMModels.Where(n => n.MaLSP == item.MaLSP))
                                 {
                                     <div class="img-thumbnail container item">
-                                        <a href="@Url.Action("Details", "Shop", new {masp=item3.MaSP})" style="text-decoration:none;">
+                                        <a href="@Url.Action("Details", "Shop", new {masp=sanpham.MaSP})" style="text-decoration:none;">
                                             <div class="~/image"><img src="~/image/download (1).jpg" alt="" srcset="" class="container"></div>
                                             <div class="container-fluid mb-4">
-                                                <h3 class="fw-bold nameproduct py-3 text-dark">@item3.TenSP</h3>
+                                                <h3 class="fw-bold nameproduct py-3 text-dark">@sanpham.TenSP</h3>
                                                 <div class="gia">
-                                                    <p class="fw-bold text-danger mx-0">@item3.GiaSP đ</p>
+                                                    <p class="fw-bold text-danger mx-0">@sanpham.GiaSP đ</p>
                                                     <div class="gialendoi d-flex">
                                                         <p class="font-italic align-self-center text-dark" style="font-size: 13px;">Giá lên đời:</p>
-                                                        <p class="fw-bold text-danger">19.999.999 đ</p>
+                                                        <p class="fw-bold text-danger">@sanpham.GiaSP đ</p>
                                                     </div>
                                                 </div>
                                             </div>
