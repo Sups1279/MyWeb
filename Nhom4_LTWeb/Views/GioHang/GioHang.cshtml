@@ -5,23 +5,15 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>GioHang</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<table class="table ">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.iMasp)
-        </th>
-        <th>
+        <th class="table-primary">
             @Html.DisplayNameFor(model => model.sTenSP)
         </th>
-        <th>
+        <th class="table-secondary">
             @Html.DisplayNameFor(model => model.sAnhBia)
         </th>
-        <th>
+        <th class="table-">
             @Html.DisplayNameFor(model => model.iSoLuong)
         </th>
         <th>
@@ -41,9 +33,6 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.iMasp)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.sTenSP)
         </td>

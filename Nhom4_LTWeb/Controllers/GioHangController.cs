@@ -66,7 +66,7 @@ namespace Nhom4_LTWeb.Controllers
             List<GioHang> listGioHang = layGioHang();
             if (listGioHang.Count()==0)
             {
-                return RedirectToAction("Index", "SachOnline");
+                return RedirectToAction("Index", "Shop");
             }
             ViewBag.TongSoLuong = TongSoLuong();
             ViewBag.TongTien = TongTien();
