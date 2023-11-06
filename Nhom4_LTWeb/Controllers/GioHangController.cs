@@ -47,8 +47,19 @@ namespace Nhom4_LTWeb.Controllers
             List<GioHang> lstioHang = Session["GioHang"] as List<GioHang>;
             if(lstioHang != null)
             {
-
+                iTongSoLuong = lstioHang.Count();
             }
+            return iTongSoLuong;
+        }
+        private double TongTien()
+        {
+            double TongTien = 0;
+            List<GioHang> lstioHang = Session["GioHang"] as List<GioHang>;
+            if (lstioHang != null)
+            {
+                TongTien = lstioHang.Count();
+            }
+            return TongTien;
         }
         public ActionResult GioHang()
         {
@@ -57,7 +68,15 @@ namespace Nhom4_LTWeb.Controllers
             {
                 return RedirectToAction("Index", "SachOnline");
             }
+            ViewBag.TongSoLuong = TongSoLuong();
+            ViewBag.TongTien = TongTien();
             return View(listGioHang);
+        }
+        public ActionResult GioHangPartial()
+        {
+            ViewBag.TongSoLuong = TongSoLuong();
+            ViewBag.TongTien = TongTien();
+            return PartialView();
         }
     }
 }

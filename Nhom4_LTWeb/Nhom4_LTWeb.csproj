@@ -219,10 +219,10 @@
     <Content Include="Views\Shop\FooterPartial.cshtml" />
     <Content Include="Views\Shop\ItemPartial.cshtml" />
     <Content Include="Views\Shop\Details.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\GioHang\" />
     <Folder Include="Views\SearchItem\" />
   </ItemGroup>
   <ItemGroup>
