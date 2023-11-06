@@ -63,14 +63,16 @@
                                 </span>
                             </a>
                         </div>
+
                         <div class="col-md-3">
-                            <a href="" class="text-danger position-relative">
-                                <i class="fa-solid fa-cart-shopping py-3"></i>
+                            <a href="@Url.Action("GioHang","GioHang")" class="text-danger position-relative">
+                                <span><i class="fa-regular fa-heart py-3"></i></span>
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">
-                                    0
+                                    @Html.Action("GioHangPartial","GioHang")
                                 </span>
                             </a>
-                        </div>  
+                        </div>
+
                     </div>
                 </div>
             }

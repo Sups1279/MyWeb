@@ -49,7 +49,7 @@
                                         </a>
                                         <div class="d-flex justify-content-between mx-2">
                                             <a href="http://" class="wishList align-self-center"><i class="fa-solid fa-heart align-self-center"></i></a>
-                                            <a href="http://" class="btn btn-primary fw-bold" role="button"><i class="fa-solid fa-cart-shopping"></i></a>
+                                            <a href="@Url.Action("ThemGioHang", "GioHang", new {maSP = sanpham.MaSP,url = Request.Url.ToString()})" class="btn btn-primary fw-bold" role="button"><i class="fa-solid fa-cart-shopping"></i></a>
                                         </div>
                                     </div>
                                 }
