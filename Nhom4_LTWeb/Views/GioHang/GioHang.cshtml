@@ -5,61 +5,63 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<table class="table ">
-    <tr>
-        <th class="table-primary">
-            @Html.DisplayNameFor(model => model.sTenSP)
-        </th>
-        <th class="table-secondary">
-            @Html.DisplayNameFor(model => model.sAnhBia)
-        </th>
-        <th class="table-">
-            @Html.DisplayNameFor(model => model.iSoLuong)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dDonGia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dThanhTien)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.mLSP)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.mHang)
-        </th>
-        <th></th>
-    </tr>
+<div class="container">
+    <table class="table ">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.sTenSP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sAnhBia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iSoLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dDonGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dThanhTien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mLSP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mHang)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.sTenSP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.sAnhBia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.iSoLuong)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dDonGia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dThanhTien)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.mLSP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.mHang)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sTenSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sAnhBia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.iSoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dDonGia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dThanhTien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mLSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mHang)
+                </td>
+                <td>
+                    <a href="@Url.Action("Details","Shop",new {masp=item.iMasp})" class="btn btn-primary fw-bold" role="button">Chi tiết</a> |
+                    <a href="@Url.Action("Delete", new {masp=item.iMasp})" class="btn btn-danger fw-bold" role="button">Xóa</a>
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>
