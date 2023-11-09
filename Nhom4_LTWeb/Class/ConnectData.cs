@@ -9,7 +9,7 @@ namespace Nhom4_LTWeb.Class
     public class ConnectData
     {
         static ConnectData cond;
-        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=LAPTOP-VC5IF5QK\\SQLEXPRESS;Initial Catalog=ComputerMuda;Integrated Security=True");
+        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=.;Initial Catalog=ComputerMuda;Integrated Security=True");
         private ConnectData()
         {
 

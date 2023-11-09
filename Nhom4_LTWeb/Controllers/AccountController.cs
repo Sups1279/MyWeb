@@ -85,10 +85,12 @@ namespace Nhom4_LTWeb.Controllers
             if (String.IsNullOrEmpty(sUserName))
             {
                 ViewData["Err1"] = "Bạn chưa nhập tên đăng nhập";
+                return View();
             }
             else if (String.IsNullOrEmpty(sPsw))
             {
                 ViewData["Err2"] = "Phải nhập mật khẩu";
+                return View();
             }
             else
             {
@@ -101,6 +103,7 @@ namespace Nhom4_LTWeb.Controllers
                 else
                 {
                     ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                    return View();
                 }
             }
 

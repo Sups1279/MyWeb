@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="nav nav-tabs justify-content-between">
                     <div class="nav-item">
-                        <a class="nav-link bg-danger text-white active" aria-current="page" href="#"><h1>@item.TenLoaiSP</h1></a>
+                        <a class="nav-link bg-danger text-white active" aria-current="page" href="@Url.Action("SanDuLieu","LocSanPham",new {maLSP = item.MaLSP})"><h1>@item.TenLoaiSP</h1></a>
                     </div>
                     <div class="nav-item">
 
@@ -21,7 +21,7 @@
                         {
                             foreach (var item2 in Model.GetHANGModels.Where(c => c.MaHang == @item1.MaHang))
                             {
-                                <li class="align-self-center nav-item mx-1"><a class="nav-link text-bg-danger rounded-1 px-1" role="button" href="#"><p class="MYSP m-0 fw-bold">@item2.TenHang</p></a></li>
+                                <li class="align-self-center nav-item mx-1"><a class="nav-link text-bg-danger rounded-1 px-1" role="button" href="@Url.Action("SanDuLieu","LocSanPham",new {maLSP = item1.MaLSP,maHang = item1.MaHang})"><p class="MYSP m-0 fw-bold">@item2.TenHang</p></a></li>
                             }
                         }
                         <li class="align-self-center nav-item mx-1"><a class="nav-link text-bg-danger rounded-1 px-1" role="button" href="#"><p class="MYSP m-0 fw-bold">Xem tất cả</p></a></li>
@@ -64,3 +64,6 @@
 
     </div>
 </section>
+@section FooterPartial{
+        @Html.Action("FooterPartial", "Shop")
+    }

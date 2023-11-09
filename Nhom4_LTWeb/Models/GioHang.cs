@@ -14,7 +14,7 @@ namespace Nhom4_LTWeb.Models
         public string sAnhBia { get; set; }
         public int iSoLuong { get; set; }
         public double dDonGia { get; set; }
-        public double dThanhTien { get; set; }
+        public double dThanhTien { get { return iSoLuong * dDonGia; } }
         public int mLSP { get; set; }
         public int mHang { get; set; }
 
@@ -25,7 +25,6 @@ namespace Nhom4_LTWeb.Models
             sTenSP = s.TenSP;
             sAnhBia = s.HinhAnh;
             dDonGia = (double)s.GiaSP;
-            dThanhTien = dDonGia * iSoLuong;
             iSoLuong = 1;
         }
     }

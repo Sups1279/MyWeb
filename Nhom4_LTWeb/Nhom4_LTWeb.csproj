@@ -132,6 +132,8 @@
     <Compile Include="Class\ConnectData.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\LocSanPhamController.cs" />
+    <Compile Include="Models\ChiTietSP.cs" />
     <Compile Include="Models\GetALLModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchItemController.cs" />
@@ -225,6 +227,8 @@
     <Content Include="Views\Account\DangKy.cshtml" />
     <Content Include="Views\Account\DangNhap.cshtml" />
     <Content Include="Views\Account\ThongTin.cshtml" />
+    <Content Include="Views\GioHang\DatHang.cshtml" />
+    <Content Include="Views\LocSanPham\SanDuLieu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
