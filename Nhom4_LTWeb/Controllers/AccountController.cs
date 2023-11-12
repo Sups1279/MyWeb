@@ -72,8 +72,9 @@ namespace Nhom4_LTWeb.Controllers
         }
 
         [HttpGet]
-        public ActionResult DangNhap()
+        public ActionResult DangNhap(string url)
         {
+           Session["DuongDan"] = url;
             return View();
         }
 
@@ -107,11 +108,13 @@ namespace Nhom4_LTWeb.Controllers
                 }
             }
 
-            return RedirectToAction("Index", "Shop");
+            return Redirect(Session["DuongDan"].ToString());
         }
         public ActionResult DangXuat()
         {
             Session["UserName"] = null;
+            Session["DuongDan"] = null;
+            Session["GioHang"] = null;
             return RedirectToAction("Index", "Shop");
         }
 

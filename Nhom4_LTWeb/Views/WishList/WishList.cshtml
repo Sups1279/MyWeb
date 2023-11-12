@@ -1,0 +1,38 @@
+﻿@model Nhom4_LTWeb.Models.GetALLModel
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="container">
+    <table class="table">
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Ảnh bìa
+        </th>
+        <th>
+            Đơn giá
+        </th>
+        <th>
+            Ngày thêm
+        </th>
+        <th>Chỉnh sửa</th>
+
+        @foreach (var item in Model.GetWISHLISTModels)
+        {
+            <tr>
+                <td>@Model.GetSANPHAMModels.Where(n => n.MaSP == item.MaSP).Select(n => n.TenSP).SingleOrDefault()</td>
+                <td><img src="@Model.GetSANPHAMModels.Where(n => n.MaSP == item.MaSP).Select(n => n.HinhAnh).SingleOrDefault()"</td>
+                <td>@Model.GetSANPHAMModels.Where(n => n.MaSP == item.MaSP).Select(n => n.GiaSP).SingleOrDefault()</td>
+                <td>@item.NgayThemSP</td>
+                <td>
+                    <a href="@Url.Action("Details","Shop",new {masp=item.MaSP})" class="btn btn-primary fw-bold" role="button">Chi tiết</a> |
+                    <a href="@Url.Action("XoaWishList", new {masp=item.MaSP})" class="btn btn-danger fw-bold" role="button">Xóa</a> |
+                    <a href="@Url.Action("ThemGioHang","GioHang",new {masp=item.MaSP, url = Request.Url.ToString()})" class="btn btn-success fw-bold" role="button">Thêm vào giỏ</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

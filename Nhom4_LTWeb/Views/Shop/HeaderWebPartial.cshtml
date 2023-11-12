@@ -39,17 +39,17 @@
                         <div class="col-md-3"><a href="" class="text-danger"><i class="fa-solid fa-address-book py-3"></i></a></div>
 
                         <div class="col-md-3">
-                            <a href="" class="text-danger position-relative">
+                            <a href="@Url.Action("WishList","WishList")" class="text-danger position-relative">
                                 <span><i class="fa-regular fa-heart py-3"></i></span>
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">
-                                    0
+                                    @ViewBag.TongWL
                                 </span>
                             </a>
                         </div>
 
                         <div class="col-md-3">
                             <a href="@Url.Action("GioHang","GioHang")" class="text-danger position-relative">
-                                <span><i class="fa-regular fa-heart py-3"></i></span>
+                                <span><i class="fa-solid fa-cart-shopping py-3"></i></span>
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">
                                     @Html.Action("GioHangPartial", "GioHang")
                                 </span>
@@ -67,7 +67,7 @@
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item"><a href="@Url.Action("DangKy", "Account")">Đăng ký</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li class="dropdown-item"><a href="@Url.Action("DangNhap", "Account")">Đăng nhập</a></li>
+                                <li class="dropdown-item"><a href="@Url.Action("DangNhap", "Account", new {url = Request.Url.ToString()})">Đăng nhập</a></li>
                             </ul>
                         </div>
 
@@ -75,7 +75,7 @@
 
                         <div class="col-md-3">
                             <a href="" class="text-danger position-relative">
-                                <span><i class="fa-regular fa-heart py-3"></i></span>
+                                <span><i class="fa-solid fa-cart-shopping py-3"></i></span>
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">
                                     0
                                 </span>
@@ -86,7 +86,7 @@
                             <a href="@Url.Action("GioHang","GioHang")" class="text-danger position-relative">
                                 <span><i class="fa-regular fa-heart py-3"></i></span>
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">
-                                    @Html.Action("GioHangPartial","GioHang")
+                                   0
                                 </span>
                             </a>
                         </div>

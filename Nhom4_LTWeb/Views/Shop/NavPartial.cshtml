@@ -1,4 +1,5 @@
-﻿<section class="navbar bg-danger">
+﻿@model Nhom4_LTWeb.Models.GetALLModel
+<section class="navbar bg-danger">
 
     <div class="container">
         <div class="row container">
@@ -11,16 +12,17 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav  mb-2 mb-lg-0">
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Danh mục sản phẩm
                                     </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item text-dark">Laptop</a>
+                                        <a class="dropdown-item text-dark">Máy tính</a>
+                                        <a class="dropdown-item text-dark">Điện thoại</a>
+                                        <a class="dropdown-item text-dark">Linh kiện</a>
+                                    </div>
                                 </li>
+
                             </ul>
                         </div>
                     </div>

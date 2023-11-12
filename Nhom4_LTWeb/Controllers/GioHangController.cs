@@ -19,8 +19,18 @@ namespace Nhom4_LTWeb.Controllers
         }
         public List<GioHang> layGioHang()
         {
+            
             List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
-            if(lstGioHang == null)
+            if (Session["Username"] == null || Session["Username"].ToString() == "")
+            {
+                Session["GioHang"] = null;
+                if (lstGioHang != null)
+                {
+                    lstGioHang.Clear();
+                }
+              
+            }
+            if (lstGioHang == null)
             {
                 lstGioHang = new List<GioHang>();
                 Session["GioHang"] = lstGioHang;
@@ -29,6 +39,11 @@ namespace Nhom4_LTWeb.Controllers
         }
         public ActionResult ThemGioHang(int maSP,string url)
         {
+            Session["DuongDan"] = (@Url.Action("ThemGioHang", "GioHang", new {maSP = maSP,url = url}));
+            if (Session["Username"] == null || Session["Username"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "Account", new {url = Session["DuongDan"].ToString() });
+            }
             List<GioHang> lstGH = layGioHang();
 
             GioHang sp = lstGH.Find(n => n.iMasp == maSP);
@@ -67,6 +82,11 @@ namespace Nhom4_LTWeb.Controllers
         public ActionResult GioHang()
         {
             List<GioHang> listGioHang = layGioHang();
+            if (Session["Username"] == null || Session["Username"].ToString() == "")
+            {
+                Session["GioHang"] = null;
+                listGioHang.Clear();
+            }
             if (listGioHang.Count()==0)
             {
                 return RedirectToAction("Index", "Shop");
@@ -90,7 +110,7 @@ namespace Nhom4_LTWeb.Controllers
                 lst.RemoveAll(n => n.iMasp == masp);
                 if (lst.Count == 0)
                 {
-                    return RedirectToAction("Index", "Shop");
+                    return RedirectToAction("DangNhap", "Account");
                 }
             }
             return RedirectToAction("GioHang");

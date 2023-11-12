@@ -16,11 +16,17 @@ namespace Nhom4_LTWeb.Controllers
         public ActionResult Index()
         {
             GetALLModel dulieu = new GetALLModel();
+            KHACHHANG kh = (KHACHHANG)Session["Username"];
+            int temp = 0;
+            if(kh != null)
+            {
+                temp = kh.MaTK;
+            }
             dulieu.GetSANPHAMModels = db.SANPHAMs.ToList();
             dulieu.GetHANGModels = db.HANGs.ToList();   
             dulieu.GetsLOAISPModels = db.LOAISPs.ToList();
             dulieu.GetHANG_LOAISPModels = db.HANG_LOAISPs.ToList();
-            
+            dulieu.GetWISHLISTModels = db.WISHLISTs.Where(n=>n.MaTK == temp);
             return View(dulieu);
         }
         public ActionResult Details(int masp)
@@ -41,10 +47,17 @@ namespace Nhom4_LTWeb.Controllers
         }
         public ActionResult NavPartial()
         {
-            return PartialView();
+            GetALLModel item = new GetALLModel();
+            item.GetHANGModels = db.HANGs;
+            item.GetHANG_LOAISPModels = db.HANG_LOAISPs;
+            item.GetTHEModels = db.THEs;
+            item.GetTHE_CHITIETModels = db.THE_CHITIETs;
+            item.GetsLOAISPModels = db.LOAISPs;
+            return PartialView(item);
         }
         public ActionResult NavQCPartial()
         {
+            
             return PartialView();
         }
         public ActionResult FooterPartial()
