@@ -10,7 +10,7 @@ namespace Nhom4_LTWeb.Controllers
     public class WishListController : Controller
     {
         // GET: WishList
-        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=LAPTOP-VC5IF5QK\\SQLEXPRESS;Initial Catalog=ComputerMuda;Integrated Security=True");
+        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=.;Initial Catalog=ComputerMuda;Integrated Security=True");
 
         public ActionResult Index()
         {
