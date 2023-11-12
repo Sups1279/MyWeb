@@ -7,7 +7,7 @@ namespace Nhom4_LTWeb.Models
 {
     public class GioHang
     {
-        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=LAPTOP-VC5IF5QK\\SQLEXPRESS;Initial Catalog=ComputerMuda;Integrated Security=True");
+        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=.;Initial Catalog=ComputerMuda;Integrated Security=True");
 
         public int iMasp { get; set; }
         public string sTenSP { get; set; }
