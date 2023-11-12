@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Nhom4_LTWeb.Models;
 
 namespace Nhom4_LTWeb.Controllers
 {
     public class ShopController : Controller
     {
         // GET: Shop
-        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=LAPTOP-VC5IF5QK\\SQLEXPRESS;Initial Catalog=ComputerMuda;Integrated Security=True");
+        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=.;Initial Catalog=ComputerMuda;Integrated Security=True");
 
         public ActionResult Index()
         {

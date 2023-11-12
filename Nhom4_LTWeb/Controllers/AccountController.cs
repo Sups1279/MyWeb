@@ -10,7 +10,7 @@ namespace Nhom4_LTWeb.Controllers
     public class AccountController : Controller
     {
         // GET: Account
-        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=LAPTOP-VC5IF5QK\\SQLEXPRESS;Initial Catalog=ComputerMuda;Integrated Security=True");
+        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=.;Initial Catalog=ComputerMuda;Integrated Security=True");
 
         [HttpGet]
         public ActionResult DangKy()

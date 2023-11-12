@@ -30,15 +30,9 @@ namespace Nhom4_LTWeb.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertWISHLIST(WISHLIST instance);
-    partial void UpdateWISHLIST(WISHLIST instance);
-    partial void DeleteWISHLIST(WISHLIST instance);
     partial void InsertADMIN(ADMIN instance);
     partial void UpdateADMIN(ADMIN instance);
     partial void DeleteADMIN(ADMIN instance);
-    partial void InsertBANNERSALE(BANNERSALE instance);
-    partial void UpdateBANNERSALE(BANNERSALE instance);
-    partial void DeleteBANNERSALE(BANNERSALE instance);
     partial void InsertDONHANG(DONHANG instance);
     partial void UpdateDONHANG(DONHANG instance);
     partial void DeleteDONHANG(DONHANG instance);
@@ -48,9 +42,6 @@ namespace Nhom4_LTWeb.Models
     partial void InsertHANG_LOAISP(HANG_LOAISP instance);
     partial void UpdateHANG_LOAISP(HANG_LOAISP instance);
     partial void DeleteHANG_LOAISP(HANG_LOAISP instance);
-    partial void InsertHINH(HINH instance);
-    partial void UpdateHINH(HINH instance);
-    partial void DeleteHINH(HINH instance);
     partial void InsertKHACHHANG(KHACHHANG instance);
     partial void UpdateKHACHHANG(KHACHHANG instance);
     partial void DeleteKHACHHANG(KHACHHANG instance);
@@ -92,27 +83,11 @@ namespace Nhom4_LTWeb.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<WISHLIST> WISHLISTs
-		{
-			get
-			{
-				return this.GetTable<WISHLIST>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ADMIN> ADMINs
 		{
 			get
 			{
 				return this.GetTable<ADMIN>();
-			}
-		}
-		
-		public System.Data.Linq.Table<BANNERSALE> BANNERSALEs
-		{
-			get
-			{
-				return this.GetTable<BANNERSALE>();
 			}
 		}
 		
@@ -124,19 +99,19 @@ namespace Nhom4_LTWeb.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<CHITIET_SP> CHITIET_SPs
-		{
-			get
-			{
-				return this.GetTable<CHITIET_SP>();
-			}
-		}
-		
 		public System.Data.Linq.Table<CHITIETDATHANG> CHITIETDATHANGs
 		{
 			get
 			{
 				return this.GetTable<CHITIETDATHANG>();
+			}
+		}
+		
+		public System.Data.Linq.Table<CHITIET_SP> CHITIET_SPs
+		{
+			get
+			{
+				return this.GetTable<CHITIET_SP>();
 			}
 		}
 		
@@ -161,14 +136,6 @@ namespace Nhom4_LTWeb.Models
 			get
 			{
 				return this.GetTable<HANG_LOAISP>();
-			}
-		}
-		
-		public System.Data.Linq.Table<HINH> HINHs
-		{
-			get
-			{
-				return this.GetTable<HINH>();
 			}
 		}
 		
@@ -219,316 +186,12 @@ namespace Nhom4_LTWeb.Models
 				return this.GetTable<THE_CHITIET>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.WISHLIST")]
-	public partial class WISHLIST : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _TenDS;
-		
-		private System.Nullable<int> _MaTK;
-		
-		private System.Nullable<int> _MaSP;
-		
-		private System.Nullable<System.DateTime> _NgayThemDS;
-		
-		private System.Nullable<System.DateTime> _NgayThemSP;
-		
-		private System.Nullable<double> _GiaSP;
-		
-		private System.Nullable<int> _SoLuong;
-		
-		private int _MaWL;
-		
-		private EntityRef<KHACHHANG> _KHACHHANG;
-		
-		private EntityRef<SANPHAM> _SANPHAM;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTenDSChanging(string value);
-    partial void OnTenDSChanged();
-    partial void OnMaTKChanging(System.Nullable<int> value);
-    partial void OnMaTKChanged();
-    partial void OnMaSPChanging(System.Nullable<int> value);
-    partial void OnMaSPChanged();
-    partial void OnNgayThemDSChanging(System.Nullable<System.DateTime> value);
-    partial void OnNgayThemDSChanged();
-    partial void OnNgayThemSPChanging(System.Nullable<System.DateTime> value);
-    partial void OnNgayThemSPChanged();
-    partial void OnGiaSPChanging(System.Nullable<double> value);
-    partial void OnGiaSPChanged();
-    partial void OnSoLuongChanging(System.Nullable<int> value);
-    partial void OnSoLuongChanged();
-    partial void OnMaWLChanging(int value);
-    partial void OnMaWLChanged();
-    #endregion
-		
-		public WISHLIST()
-		{
-			this._KHACHHANG = default(EntityRef<KHACHHANG>);
-			this._SANPHAM = default(EntityRef<SANPHAM>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenDS", DbType="NVarChar(50)")]
-		public string TenDS
+		public System.Data.Linq.Table<WISHLIST> WISHLISTs
 		{
 			get
 			{
-				return this._TenDS;
-			}
-			set
-			{
-				if ((this._TenDS != value))
-				{
-					this.OnTenDSChanging(value);
-					this.SendPropertyChanging();
-					this._TenDS = value;
-					this.SendPropertyChanged("TenDS");
-					this.OnTenDSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaTK", DbType="Int")]
-		public System.Nullable<int> MaTK
-		{
-			get
-			{
-				return this._MaTK;
-			}
-			set
-			{
-				if ((this._MaTK != value))
-				{
-					if (this._KHACHHANG.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaTKChanging(value);
-					this.SendPropertyChanging();
-					this._MaTK = value;
-					this.SendPropertyChanged("MaTK");
-					this.OnMaTKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="Int")]
-		public System.Nullable<int> MaSP
-		{
-			get
-			{
-				return this._MaSP;
-			}
-			set
-			{
-				if ((this._MaSP != value))
-				{
-					if (this._SANPHAM.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaSPChanging(value);
-					this.SendPropertyChanging();
-					this._MaSP = value;
-					this.SendPropertyChanged("MaSP");
-					this.OnMaSPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayThemDS", DbType="Date")]
-		public System.Nullable<System.DateTime> NgayThemDS
-		{
-			get
-			{
-				return this._NgayThemDS;
-			}
-			set
-			{
-				if ((this._NgayThemDS != value))
-				{
-					this.OnNgayThemDSChanging(value);
-					this.SendPropertyChanging();
-					this._NgayThemDS = value;
-					this.SendPropertyChanged("NgayThemDS");
-					this.OnNgayThemDSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayThemSP", DbType="Date")]
-		public System.Nullable<System.DateTime> NgayThemSP
-		{
-			get
-			{
-				return this._NgayThemSP;
-			}
-			set
-			{
-				if ((this._NgayThemSP != value))
-				{
-					this.OnNgayThemSPChanging(value);
-					this.SendPropertyChanging();
-					this._NgayThemSP = value;
-					this.SendPropertyChanged("NgayThemSP");
-					this.OnNgayThemSPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaSP", DbType="Float")]
-		public System.Nullable<double> GiaSP
-		{
-			get
-			{
-				return this._GiaSP;
-			}
-			set
-			{
-				if ((this._GiaSP != value))
-				{
-					this.OnGiaSPChanging(value);
-					this.SendPropertyChanging();
-					this._GiaSP = value;
-					this.SendPropertyChanged("GiaSP");
-					this.OnGiaSPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuong", DbType="Int")]
-		public System.Nullable<int> SoLuong
-		{
-			get
-			{
-				return this._SoLuong;
-			}
-			set
-			{
-				if ((this._SoLuong != value))
-				{
-					this.OnSoLuongChanging(value);
-					this.SendPropertyChanging();
-					this._SoLuong = value;
-					this.SendPropertyChanged("SoLuong");
-					this.OnSoLuongChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaWL", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int MaWL
-		{
-			get
-			{
-				return this._MaWL;
-			}
-			set
-			{
-				if ((this._MaWL != value))
-				{
-					this.OnMaWLChanging(value);
-					this.SendPropertyChanging();
-					this._MaWL = value;
-					this.SendPropertyChanged("MaWL");
-					this.OnMaWLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHACHHANG_WISHLIST", Storage="_KHACHHANG", ThisKey="MaTK", OtherKey="MaTK", IsForeignKey=true)]
-		public KHACHHANG KHACHHANG
-		{
-			get
-			{
-				return this._KHACHHANG.Entity;
-			}
-			set
-			{
-				KHACHHANG previousValue = this._KHACHHANG.Entity;
-				if (((previousValue != value) 
-							|| (this._KHACHHANG.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._KHACHHANG.Entity = null;
-						previousValue.WISHLISTs.Remove(this);
-					}
-					this._KHACHHANG.Entity = value;
-					if ((value != null))
-					{
-						value.WISHLISTs.Add(this);
-						this._MaTK = value.MaTK;
-					}
-					else
-					{
-						this._MaTK = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("KHACHHANG");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SANPHAM_WISHLIST", Storage="_SANPHAM", ThisKey="MaSP", OtherKey="MaSP", IsForeignKey=true)]
-		public SANPHAM SANPHAM
-		{
-			get
-			{
-				return this._SANPHAM.Entity;
-			}
-			set
-			{
-				SANPHAM previousValue = this._SANPHAM.Entity;
-				if (((previousValue != value) 
-							|| (this._SANPHAM.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._SANPHAM.Entity = null;
-						previousValue.WISHLISTs.Remove(this);
-					}
-					this._SANPHAM.Entity = value;
-					if ((value != null))
-					{
-						value.WISHLISTs.Add(this);
-						this._MaSP = value.MaSP;
-					}
-					else
-					{
-						this._MaSP = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("SANPHAM");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<WISHLIST>();
 			}
 		}
 	}
@@ -763,92 +426,6 @@ namespace Nhom4_LTWeb.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BANNERSALES")]
-	public partial class BANNERSALE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MaBanner;
-		
-		private string _Banner;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaBannerChanging(int value);
-    partial void OnMaBannerChanged();
-    partial void OnBannerChanging(string value);
-    partial void OnBannerChanged();
-    #endregion
-		
-		public BANNERSALE()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBanner", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MaBanner
-		{
-			get
-			{
-				return this._MaBanner;
-			}
-			set
-			{
-				if ((this._MaBanner != value))
-				{
-					this.OnMaBannerChanging(value);
-					this.SendPropertyChanging();
-					this._MaBanner = value;
-					this.SendPropertyChanged("MaBanner");
-					this.OnMaBannerChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Banner", DbType="NChar(10)")]
-		public string Banner
-		{
-			get
-			{
-				return this._Banner;
-			}
-			set
-			{
-				if ((this._Banner != value))
-				{
-					this.OnBannerChanging(value);
-					this.SendPropertyChanging();
-					this._Banner = value;
-					this.SendPropertyChanged("Banner");
-					this.OnBannerChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BINH_LUAN")]
 	public partial class BINH_LUAN
 	{
@@ -930,69 +507,6 @@ namespace Nhom4_LTWeb.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CHITIET_SP")]
-	public partial class CHITIET_SP
-	{
-		
-		private int _MaSP;
-		
-		private int _MaTH;
-		
-		private System.Nullable<int> _MaThongSo;
-		
-		public CHITIET_SP()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="Int NOT NULL")]
-		public int MaSP
-		{
-			get
-			{
-				return this._MaSP;
-			}
-			set
-			{
-				if ((this._MaSP != value))
-				{
-					this._MaSP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaTH", DbType="Int NOT NULL")]
-		public int MaTH
-		{
-			get
-			{
-				return this._MaTH;
-			}
-			set
-			{
-				if ((this._MaTH != value))
-				{
-					this._MaTH = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaThongSo", DbType="Int")]
-		public System.Nullable<int> MaThongSo
-		{
-			get
-			{
-				return this._MaThongSo;
-			}
-			set
-			{
-				if ((this._MaThongSo != value))
-				{
-					this._MaThongSo = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CHITIETDATHANG")]
 	public partial class CHITIETDATHANG
 	{
@@ -1069,6 +583,69 @@ namespace Nhom4_LTWeb.Models
 				if ((this._GiaSP != value))
 				{
 					this._GiaSP = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CHITIET_SP")]
+	public partial class CHITIET_SP
+	{
+		
+		private int _MaSP;
+		
+		private int _MaTH;
+		
+		private System.Nullable<int> _MaThongSo;
+		
+		public CHITIET_SP()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="Int NOT NULL")]
+		public int MaSP
+		{
+			get
+			{
+				return this._MaSP;
+			}
+			set
+			{
+				if ((this._MaSP != value))
+				{
+					this._MaSP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaTH", DbType="Int NOT NULL")]
+		public int MaTH
+		{
+			get
+			{
+				return this._MaTH;
+			}
+			set
+			{
+				if ((this._MaTH != value))
+				{
+					this._MaTH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaThongSo", DbType="Int")]
+		public System.Nullable<int> MaThongSo
+		{
+			get
+			{
+				return this._MaThongSo;
+			}
+			set
+			{
+				if ((this._MaThongSo != value))
+				{
+					this._MaThongSo = value;
 				}
 			}
 		}
@@ -1631,157 +1208,6 @@ namespace Nhom4_LTWeb.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HINH")]
-	public partial class HINH : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MaHinh;
-		
-		private int _MaSP;
-		
-		private string _HinhSP;
-		
-		private EntityRef<SANPHAM> _SANPHAM;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaHinhChanging(int value);
-    partial void OnMaHinhChanged();
-    partial void OnMaSPChanging(int value);
-    partial void OnMaSPChanged();
-    partial void OnHinhSPChanging(string value);
-    partial void OnHinhSPChanged();
-    #endregion
-		
-		public HINH()
-		{
-			this._SANPHAM = default(EntityRef<SANPHAM>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaHinh", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MaHinh
-		{
-			get
-			{
-				return this._MaHinh;
-			}
-			set
-			{
-				if ((this._MaHinh != value))
-				{
-					this.OnMaHinhChanging(value);
-					this.SendPropertyChanging();
-					this._MaHinh = value;
-					this.SendPropertyChanged("MaHinh");
-					this.OnMaHinhChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="Int NOT NULL")]
-		public int MaSP
-		{
-			get
-			{
-				return this._MaSP;
-			}
-			set
-			{
-				if ((this._MaSP != value))
-				{
-					if (this._SANPHAM.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaSPChanging(value);
-					this.SendPropertyChanging();
-					this._MaSP = value;
-					this.SendPropertyChanged("MaSP");
-					this.OnMaSPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HinhSP", DbType="NChar(20)")]
-		public string HinhSP
-		{
-			get
-			{
-				return this._HinhSP;
-			}
-			set
-			{
-				if ((this._HinhSP != value))
-				{
-					this.OnHinhSPChanging(value);
-					this.SendPropertyChanging();
-					this._HinhSP = value;
-					this.SendPropertyChanged("HinhSP");
-					this.OnHinhSPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SANPHAM_HINH", Storage="_SANPHAM", ThisKey="MaSP", OtherKey="MaSP", IsForeignKey=true)]
-		public SANPHAM SANPHAM
-		{
-			get
-			{
-				return this._SANPHAM.Entity;
-			}
-			set
-			{
-				SANPHAM previousValue = this._SANPHAM.Entity;
-				if (((previousValue != value) 
-							|| (this._SANPHAM.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._SANPHAM.Entity = null;
-						previousValue.HINHs.Remove(this);
-					}
-					this._SANPHAM.Entity = value;
-					if ((value != null))
-					{
-						value.HINHs.Add(this);
-						this._MaSP = value.MaSP;
-					}
-					else
-					{
-						this._MaSP = default(int);
-					}
-					this.SendPropertyChanged("SANPHAM");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KHACHHANG")]
 	public partial class KHACHHANG : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1801,8 +1227,6 @@ namespace Nhom4_LTWeb.Models
 		private System.Nullable<System.DateTime> _NgayDK;
 		
 		private string _HoTen;
-		
-		private EntitySet<WISHLIST> _WISHLISTs;
 		
 		private EntitySet<DONHANG> _DONHANGs;
 		
@@ -1828,7 +1252,6 @@ namespace Nhom4_LTWeb.Models
 		
 		public KHACHHANG()
 		{
-			this._WISHLISTs = new EntitySet<WISHLIST>(new Action<WISHLIST>(this.attach_WISHLISTs), new Action<WISHLIST>(this.detach_WISHLISTs));
 			this._DONHANGs = new EntitySet<DONHANG>(new Action<DONHANG>(this.attach_DONHANGs), new Action<DONHANG>(this.detach_DONHANGs));
 			OnCreated();
 		}
@@ -1973,19 +1396,6 @@ namespace Nhom4_LTWeb.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHACHHANG_WISHLIST", Storage="_WISHLISTs", ThisKey="MaTK", OtherKey="MaTK")]
-		public EntitySet<WISHLIST> WISHLISTs
-		{
-			get
-			{
-				return this._WISHLISTs;
-			}
-			set
-			{
-				this._WISHLISTs.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHACHHANG_DONHANG", Storage="_DONHANGs", ThisKey="MaTK", OtherKey="MaTK")]
 		public EntitySet<DONHANG> DONHANGs
 		{
@@ -2019,18 +1429,6 @@ namespace Nhom4_LTWeb.Models
 			}
 		}
 		
-		private void attach_WISHLISTs(WISHLIST entity)
-		{
-			this.SendPropertyChanging();
-			entity.KHACHHANG = this;
-		}
-		
-		private void detach_WISHLISTs(WISHLIST entity)
-		{
-			this.SendPropertyChanging();
-			entity.KHACHHANG = null;
-		}
-		
 		private void attach_DONHANGs(DONHANG entity)
 		{
 			this.SendPropertyChanging();
@@ -2048,16 +1446,16 @@ namespace Nhom4_LTWeb.Models
 	public partial class LINH_KIEN
 	{
 		
-		private int _MaLK;
+		private System.Nullable<int> _MaLK;
 		
-		private int _MASP;
+		private System.Nullable<int> _MaSP;
 		
 		public LINH_KIEN()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLK", DbType="Int NOT NULL")]
-		public int MaLK
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLK", DbType="Int")]
+		public System.Nullable<int> MaLK
 		{
 			get
 			{
@@ -2072,18 +1470,18 @@ namespace Nhom4_LTWeb.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MASP", DbType="Int NOT NULL")]
-		public int MASP
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="Int")]
+		public System.Nullable<int> MaSP
 		{
 			get
 			{
-				return this._MASP;
+				return this._MaSP;
 			}
 			set
 			{
-				if ((this._MASP != value))
+				if ((this._MaSP != value))
 				{
-					this._MASP = value;
+					this._MaSP = value;
 				}
 			}
 		}
@@ -2211,12 +1609,6 @@ namespace Nhom4_LTWeb.Models
 		
 		private int _MaSP;
 		
-		private System.Nullable<int> _MaLK;
-		
-		private System.Nullable<int> _MaLSP;
-		
-		private System.Nullable<int> _MaHang;
-		
 		private string _TenSP;
 		
 		private System.Nullable<double> _GiaSP;
@@ -2227,11 +1619,11 @@ namespace Nhom4_LTWeb.Models
 		
 		private System.Nullable<int> _DiemDanhGia;
 		
+		private System.Nullable<int> _MaHang;
+		
+		private System.Nullable<int> _MaLSP;
+		
 		private System.Nullable<int> _SoLuong;
-		
-		private EntitySet<WISHLIST> _WISHLISTs;
-		
-		private EntitySet<HINH> _HINHs;
 		
 		private EntityRef<HANG_LOAISP> _HANG_LOAISP;
 		
@@ -2241,12 +1633,6 @@ namespace Nhom4_LTWeb.Models
     partial void OnCreated();
     partial void OnMaSPChanging(int value);
     partial void OnMaSPChanged();
-    partial void OnMaLKChanging(System.Nullable<int> value);
-    partial void OnMaLKChanged();
-    partial void OnMaLSPChanging(System.Nullable<int> value);
-    partial void OnMaLSPChanged();
-    partial void OnMaHangChanging(System.Nullable<int> value);
-    partial void OnMaHangChanged();
     partial void OnTenSPChanging(string value);
     partial void OnTenSPChanged();
     partial void OnGiaSPChanging(System.Nullable<double> value);
@@ -2257,14 +1643,16 @@ namespace Nhom4_LTWeb.Models
     partial void OnHinhAnhChanged();
     partial void OnDiemDanhGiaChanging(System.Nullable<int> value);
     partial void OnDiemDanhGiaChanged();
+    partial void OnMaHangChanging(System.Nullable<int> value);
+    partial void OnMaHangChanged();
+    partial void OnMaLSPChanging(System.Nullable<int> value);
+    partial void OnMaLSPChanged();
     partial void OnSoLuongChanging(System.Nullable<int> value);
     partial void OnSoLuongChanged();
     #endregion
 		
 		public SANPHAM()
 		{
-			this._WISHLISTs = new EntitySet<WISHLIST>(new Action<WISHLIST>(this.attach_WISHLISTs), new Action<WISHLIST>(this.detach_WISHLISTs));
-			this._HINHs = new EntitySet<HINH>(new Action<HINH>(this.attach_HINHs), new Action<HINH>(this.detach_HINHs));
 			this._HANG_LOAISP = default(EntityRef<HANG_LOAISP>);
 			OnCreated();
 		}
@@ -2285,74 +1673,6 @@ namespace Nhom4_LTWeb.Models
 					this._MaSP = value;
 					this.SendPropertyChanged("MaSP");
 					this.OnMaSPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLK", DbType="Int")]
-		public System.Nullable<int> MaLK
-		{
-			get
-			{
-				return this._MaLK;
-			}
-			set
-			{
-				if ((this._MaLK != value))
-				{
-					this.OnMaLKChanging(value);
-					this.SendPropertyChanging();
-					this._MaLK = value;
-					this.SendPropertyChanged("MaLK");
-					this.OnMaLKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLSP", DbType="Int")]
-		public System.Nullable<int> MaLSP
-		{
-			get
-			{
-				return this._MaLSP;
-			}
-			set
-			{
-				if ((this._MaLSP != value))
-				{
-					if (this._HANG_LOAISP.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaLSPChanging(value);
-					this.SendPropertyChanging();
-					this._MaLSP = value;
-					this.SendPropertyChanged("MaLSP");
-					this.OnMaLSPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaHang", DbType="Int")]
-		public System.Nullable<int> MaHang
-		{
-			get
-			{
-				return this._MaHang;
-			}
-			set
-			{
-				if ((this._MaHang != value))
-				{
-					if (this._HANG_LOAISP.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaHangChanging(value);
-					this.SendPropertyChanging();
-					this._MaHang = value;
-					this.SendPropertyChanged("MaHang");
-					this.OnMaHangChanged();
 				}
 			}
 		}
@@ -2457,6 +1777,54 @@ namespace Nhom4_LTWeb.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaHang", DbType="Int")]
+		public System.Nullable<int> MaHang
+		{
+			get
+			{
+				return this._MaHang;
+			}
+			set
+			{
+				if ((this._MaHang != value))
+				{
+					if (this._HANG_LOAISP.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaHangChanging(value);
+					this.SendPropertyChanging();
+					this._MaHang = value;
+					this.SendPropertyChanged("MaHang");
+					this.OnMaHangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLSP", DbType="Int")]
+		public System.Nullable<int> MaLSP
+		{
+			get
+			{
+				return this._MaLSP;
+			}
+			set
+			{
+				if ((this._MaLSP != value))
+				{
+					if (this._HANG_LOAISP.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaLSPChanging(value);
+					this.SendPropertyChanging();
+					this._MaLSP = value;
+					this.SendPropertyChanged("MaLSP");
+					this.OnMaLSPChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuong", DbType="Int")]
 		public System.Nullable<int> SoLuong
 		{
@@ -2474,32 +1842,6 @@ namespace Nhom4_LTWeb.Models
 					this.SendPropertyChanged("SoLuong");
 					this.OnSoLuongChanged();
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SANPHAM_WISHLIST", Storage="_WISHLISTs", ThisKey="MaSP", OtherKey="MaSP")]
-		public EntitySet<WISHLIST> WISHLISTs
-		{
-			get
-			{
-				return this._WISHLISTs;
-			}
-			set
-			{
-				this._WISHLISTs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SANPHAM_HINH", Storage="_HINHs", ThisKey="MaSP", OtherKey="MaSP")]
-		public EntitySet<HINH> HINHs
-		{
-			get
-			{
-				return this._HINHs;
-			}
-			set
-			{
-				this._HINHs.Assign(value);
 			}
 		}
 		
@@ -2557,30 +1899,6 @@ namespace Nhom4_LTWeb.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_WISHLISTs(WISHLIST entity)
-		{
-			this.SendPropertyChanging();
-			entity.SANPHAM = this;
-		}
-		
-		private void detach_WISHLISTs(WISHLIST entity)
-		{
-			this.SendPropertyChanging();
-			entity.SANPHAM = null;
-		}
-		
-		private void attach_HINHs(HINH entity)
-		{
-			this.SendPropertyChanging();
-			entity.SANPHAM = this;
-		}
-		
-		private void detach_HINHs(HINH entity)
-		{
-			this.SendPropertyChanging();
-			entity.SANPHAM = null;
 		}
 	}
 	
@@ -2845,6 +2163,159 @@ namespace Nhom4_LTWeb.Models
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.WISHLIST")]
+	public partial class WISHLIST
+	{
+		
+		private string _TenDS;
+		
+		private System.Nullable<int> _MaTK;
+		
+		private System.Nullable<int> _MaSP;
+		
+		private System.Nullable<System.DateTime> _NgayThemDS;
+		
+		private System.Nullable<System.DateTime> _NgayThemSP;
+		
+		private System.Nullable<double> _GiaSP;
+		
+		private System.Nullable<int> _SoLuong;
+		
+		private System.Nullable<int> _MaLW;
+		
+		public WISHLIST()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenDS", DbType="NVarChar(50)")]
+		public string TenDS
+		{
+			get
+			{
+				return this._TenDS;
+			}
+			set
+			{
+				if ((this._TenDS != value))
+				{
+					this._TenDS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaTK", DbType="Int")]
+		public System.Nullable<int> MaTK
+		{
+			get
+			{
+				return this._MaTK;
+			}
+			set
+			{
+				if ((this._MaTK != value))
+				{
+					this._MaTK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="Int")]
+		public System.Nullable<int> MaSP
+		{
+			get
+			{
+				return this._MaSP;
+			}
+			set
+			{
+				if ((this._MaSP != value))
+				{
+					this._MaSP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayThemDS", DbType="Date")]
+		public System.Nullable<System.DateTime> NgayThemDS
+		{
+			get
+			{
+				return this._NgayThemDS;
+			}
+			set
+			{
+				if ((this._NgayThemDS != value))
+				{
+					this._NgayThemDS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayThemSP", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NgayThemSP
+		{
+			get
+			{
+				return this._NgayThemSP;
+			}
+			set
+			{
+				if ((this._NgayThemSP != value))
+				{
+					this._NgayThemSP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaSP", DbType="Float")]
+		public System.Nullable<double> GiaSP
+		{
+			get
+			{
+				return this._GiaSP;
+			}
+			set
+			{
+				if ((this._GiaSP != value))
+				{
+					this._GiaSP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuong", DbType="Int")]
+		public System.Nullable<int> SoLuong
+		{
+			get
+			{
+				return this._SoLuong;
+			}
+			set
+			{
+				if ((this._SoLuong != value))
+				{
+					this._SoLuong = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLW", DbType="Int")]
+		public System.Nullable<int> MaLW
+		{
+			get
+			{
+				return this._MaLW;
+			}
+			set
+			{
+				if ((this._MaLW != value))
+				{
+					this._MaLW = value;
+				}
 			}
 		}
 	}
