@@ -247,3 +247,7 @@ D:\BT_cua_Bao\GitHub\New folder\MyWeb\Nhom4_LTWeb\obj\Debug\Nhom4_LTWeb.csproj.C
 D:\BT_cua_Bao\GitHub\New folder\MyWeb\Nhom4_LTWeb\obj\Debug\Nhom4_LTWeb.csproj.CopyComplete
 D:\BT_cua_Bao\GitHub\New folder\MyWeb\Nhom4_LTWeb\obj\Debug\Nhom4_LTWeb.dll
 D:\BT_cua_Bao\GitHub\New folder\MyWeb\Nhom4_LTWeb\obj\Debug\Nhom4_LTWeb.pdb
+D:\BT_cua_Bao\GitHub\New folder\MyWeb\Nhom4_LTWeb\bin\PagedList.dll
+D:\BT_cua_Bao\GitHub\New folder\MyWeb\Nhom4_LTWeb\bin\PagedList.Mvc.dll
+D:\BT_cua_Bao\GitHub\New folder\MyWeb\Nhom4_LTWeb\bin\PagedList.xml
+D:\BT_cua_Bao\GitHub\New folder\MyWeb\Nhom4_LTWeb\bin\PagedList.Mvc.xml
