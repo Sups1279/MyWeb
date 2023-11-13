@@ -176,5 +176,10 @@ namespace Nhom4_LTWeb.Controllers
             Session["GioHang"] = null;
             return RedirectToAction("XacNhanDonHang", "GioHang");
         }
+        public ActionResult XacNhanDonHang(FormCollection f)
+        {
+            
+            return View();
+        }
     }
 }

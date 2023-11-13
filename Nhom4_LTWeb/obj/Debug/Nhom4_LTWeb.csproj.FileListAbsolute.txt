@@ -164,3 +164,7 @@ D:\Code\Github\MyWeb\Nhom4_LTWeb\bin\roslyn\vbc.exe.config
 D:\Code\Github\MyWeb\Nhom4_LTWeb\bin\roslyn\vbc.rsp
 D:\Code\Github\MyWeb\Nhom4_LTWeb\bin\roslyn\VBCSCompiler.exe
 D:\Code\Github\MyWeb\Nhom4_LTWeb\bin\roslyn\VBCSCompiler.exe.config
+D:\MyWebOffical\MyWeb\Nhom4_LTWeb\bin\PagedList.dll
+D:\MyWebOffical\MyWeb\Nhom4_LTWeb\bin\PagedList.Mvc.dll
+D:\MyWebOffical\MyWeb\Nhom4_LTWeb\bin\PagedList.xml
+D:\MyWebOffical\MyWeb\Nhom4_LTWeb\bin\PagedList.Mvc.xml

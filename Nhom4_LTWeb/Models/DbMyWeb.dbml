@@ -1,4 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ComputerMuda" Class="DbMyWebDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.ADMIN" Member="ADMINs">
+    <Type Name="ADMIN">
+      <Column Name="MaAD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SoDT" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Psw" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Quyen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.WISHLIST" Member="WISHLISTs">
     <Type Name="WISHLIST">
       <Column Name="TenDS" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -13,18 +25,6 @@
       <Association Name="SANPHAM_WISHLIST" Member="SANPHAM" ThisKey="MaSP" OtherKey="MaSP" Type="SANPHAM" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.ADMIN" Member="ADMINs">
-    <Type Name="ADMIN">
-      <Column Name="MaAD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SoDT" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Psw" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
-      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Quyen" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.BANNERSALES" Member="BANNERSALEs">
     <Type Name="BANNERSALE">
       <Column Name="MaBanner" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -33,6 +33,7 @@
   </Table>
   <Table Name="dbo.BINH_LUAN" Member="BINH_LUANs">
     <Type Name="BINH_LUAN">
+      <Column Name="MaBL" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Column Name="BinhLuan" Type="System.String" DbType="NVarChar(130)" CanBeNull="true" />
       <Column Name="Diem" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -56,6 +57,7 @@
       <Column Name="MaDH" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="GiaSP" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MaCT" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="DONHANG_CHITIETDATHANG" Member="DONHANG" ThisKey="MaDH" OtherKey="MaDH" Type="DONHANG" IsForeignKey="true" />
       <Association Name="SANPHAM_CHITIETDATHANG" Member="SANPHAM" ThisKey="MaSP" OtherKey="MaSP" Type="SANPHAM" IsForeignKey="true" />
     </Type>
@@ -103,9 +105,10 @@
       <Column Name="SDT" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Psw" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="Psw" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="NgayDK" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="KHACHHANG_WISHLIST" Member="WISHLISTs" ThisKey="MaTK" OtherKey="MaTK" Type="WISHLIST" />
       <Association Name="KHACHHANG_BINH_LUAN" Member="BINH_LUANs" ThisKey="MaTK" OtherKey="MaTK" Type="BINH_LUAN" />
       <Association Name="KHACHHANG_DONHANG" Member="DONHANGs" ThisKey="MaTK" OtherKey="MaTK" Type="DONHANG" />
