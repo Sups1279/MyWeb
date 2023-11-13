@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ComputerMudaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="MaAD" />
+    </Key>
+    <Property Name="MaAD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+    <Property Name="SoDT" Type="nchar" MaxLength="10" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Psw" Type="nchar" MaxLength="30" />
+    <Property Name="NgayTao" Type="date" />
+    <Property Name="Quyen" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ComputerMuda.dbo.BINH_LUAN' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="BINH_LUAN">
+          <Property Name="BinhLuan" Type="nvarchar" MaxLength="130" />
+          <Property Name="Diem" Type="int" />
+          <Property Name="MaSP" Type="int" />
+          <Property Name="MaTK" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ComputerMuda.dbo.CHITIET_SP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CHITIET_SP">
+    <Key>
+      <PropertyRef Name="MaSP" />
+      <PropertyRef Name="MaTH" />
+    </Key>
+    <Property Name="MaSP" Type="int" Nullable="false" />
+    <Property Name="MaTH" Type="int" Nullable="false" />
+    <Property Name="MaThongSo" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ComputerMuda.dbo.CHITIETDATHANG' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CHITIETDATHANG">
+          <Property Name="MaSP" Type="int" />
+          <Property Name="MaDH" Type="int" />
+          <Property Name="SoLuong" Type="int" />
+          <Property Name="GiaSP" Type="float" />
+        </EntityType>-->
+  <EntityType Name="DONHANG">
+    <Key>
+      <PropertyRef Name="MaDH" />
+    </Key>
+    <Property Name="MaDH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDH" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayGiao" Type="date" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="NgayDat" Type="date" />
+    <Property Name="TinhTrangDonHang" Type="nvarchar" MaxLength="50" />
+    <Property Name="DaThanhToan" Type="bit" />
+  </EntityType>
+  <EntityType Name="HANG">
+    <Key>
+      <PropertyRef Name="MaHang" />
+    </Key>
+    <Property Name="MaHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenHang" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HANG_LOAISP">
+    <Key>
+      <PropertyRef Name="MaHang" />
+      <PropertyRef Name="MaLSP" />
+    </Key>
+    <Property Name="MaHang" Type="int" Nullable="false" />
+    <Property Name="MaLSP" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="MaTK" />
+    </Key>
+    <Property Name="MaTK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SDT" Type="nchar" MaxLength="10" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Psw" Type="nchar" MaxLength="30" />
+    <Property Name="NgayDK" Type="date" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LOAISP">
+    <Key>
+      <PropertyRef Name="MaLSP" />
+    </Key>
+    <Property Name="MaLSP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoaiSP" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="SANPHAM">
+    <Key>
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaSP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenSP" Type="nvarchar" MaxLength="50" />
+    <Property Name="GiaSP" Type="float" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="230" />
+    <Property Name="HinhAnh" Type="nchar" MaxLength="10" />
+    <Property Name="DiemDanhGia" Type="int" />
+    <Property Name="MaHang" Type="int" />
+    <Property Name="MaLSP" Type="int" />
+    <Property Name="SoLuong" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="THE">
+    <Key>
+      <PropertyRef Name="MaTH" />
+    </Key>
+    <Property Name="MaTH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenThe" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="THE_CHITIET">
+    <Key>
+      <PropertyRef Name="MaThongSo" />
+    </Key>
+    <Property Name="MaTH" Type="int" Nullable="false" />
+    <Property Name="ThongSo" Type="nchar" MaxLength="50" />
+    <Property Name="MaThongSo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ComputerMuda.dbo.WISHLIST' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="WISHLIST">
+          <Property Name="TenDS" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaTK" Type="int" />
+          <Property Name="MaSP" Type="int" />
+          <Property Name="NgayThemDS" Type="date" />
+          <Property Name="NgayThemSP" Type="nchar" MaxLength="10" />
+          <Property Name="GiaSP" Type="float" />
+          <Property Name="SoLuong" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+error 6004: The table 'ComputerMuda.dbo.BINH_LUAN' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_BINH_LUAN_KHACHHANG" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'ComputerMuda.dbo.BINH_LUAN' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_BINH_LUAN_MAYTINH" />-->
+  <Association Name="FK_CHITIET_SP_SANPHAM">
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+    <End Role="CHITIET_SP" Type="Self.CHITIET_SP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SANPHAM">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="CHITIET_SP">
+        <PropertyRef Name="MaSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIET_SP_THE_CHITIET">
+    <End Role="THE_CHITIET" Type="Self.THE_CHITIET" Multiplicity="0..1" />
+    <End Role="CHITIET_SP" Type="Self.CHITIET_SP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THE_CHITIET">
+        <PropertyRef Name="MaThongSo" />
+      </Principal>
+      <Dependent Role="CHITIET_SP">
+        <PropertyRef Name="MaThongSo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'ComputerMuda.dbo.CHITIETDATHANG' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_CHITIETDATHANG_DONHANG" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'ComputerMuda.dbo.CHITIETDATHANG' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_CHITIETDATHANG_SANPHAM" />-->
+  <Association Name="FK_DONHANG_KHACHHANG">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="DONHANG">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HANG_LOAISP_HANG">
+    <End Role="HANG" Type="Self.HANG" Multiplicity="1" />
+    <End Role="HANG_LOAISP" Type="Self.HANG_LOAISP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANG">
+        <PropertyRef Name="MaHang" />
+      </Principal>
+      <Dependent Role="HANG_LOAISP">
+        <PropertyRef Name="MaHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HANG_LOAISP_LOAISP">
+    <End Role="LOAISP" Type="Self.LOAISP" Multiplicity="1" />
+    <End Role="HANG_LOAISP" Type="Self.HANG_LOAISP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAISP">
+        <PropertyRef Name="MaLSP" />
+      </Principal>
+      <Dependent Role="HANG_LOAISP">
+        <PropertyRef Name="MaLSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SANPHAM_HANG_LOAISP1">
+    <End Role="HANG_LOAISP" Type="Self.HANG_LOAISP" Multiplicity="0..1" />
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANG_LOAISP">
+        <PropertyRef Name="MaHang" />
+        <PropertyRef Name="MaLSP" />
+      </Principal>
+      <Dependent Role="SANPHAM">
+        <PropertyRef Name="MaHang" />
+        <PropertyRef Name="MaLSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THE_CHITIET_THE">
+    <End Role="THE" Type="Self.THE" Multiplicity="1" />
+    <End Role="THE_CHITIET" Type="Self.THE_CHITIET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THE">
+        <PropertyRef Name="MaTH" />
+      </Principal>
+      <Dependent Role="THE_CHITIET">
+        <PropertyRef Name="MaTH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'ComputerMuda.dbo.WISHLIST' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_WISHLIST_KHACHHANG" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'ComputerMuda.dbo.WISHLIST' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_WISHLIST_MAYTINH" />-->
+  <EntityContainer Name="ComputerMudaModelStoreContainer">
+    <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONHANG" EntityType="Self.DONHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HANG" EntityType="Self.HANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HANG_LOAISP" EntityType="Self.HANG_LOAISP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAISP" EntityType="Self.LOAISP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THE" EntityType="Self.THE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THE_CHITIET" EntityType="Self.THE_CHITIET" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHITIET_SP" EntityType="Self.CHITIET_SP" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CHITIET_SP].[MaSP] AS [MaSP], 
+    [CHITIET_SP].[MaTH] AS [MaTH], 
+    [CHITIET_SP].[MaThongSo] AS [MaThongSo]
+    FROM [dbo].[CHITIET_SP] AS [CHITIET_SP]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_CHITIET_SP_SANPHAM" Association="Self.FK_CHITIET_SP_SANPHAM">
+      <End Role="SANPHAM" EntitySet="SANPHAM" />
+      <End Role="CHITIET_SP" EntitySet="CHITIET_SP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIET_SP_THE_CHITIET" Association="Self.FK_CHITIET_SP_THE_CHITIET">
+      <End Role="THE_CHITIET" EntitySet="THE_CHITIET" />
+      <End Role="CHITIET_SP" EntitySet="CHITIET_SP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DONHANG_KHACHHANG" Association="Self.FK_DONHANG_KHACHHANG">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="DONHANG" EntitySet="DONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HANG_LOAISP_HANG" Association="Self.FK_HANG_LOAISP_HANG">
+      <End Role="HANG" EntitySet="HANG" />
+      <End Role="HANG_LOAISP" EntitySet="HANG_LOAISP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HANG_LOAISP_LOAISP" Association="Self.FK_HANG_LOAISP_LOAISP">
+      <End Role="LOAISP" EntitySet="LOAISP" />
+      <End Role="HANG_LOAISP" EntitySet="HANG_LOAISP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SANPHAM_HANG_LOAISP1" Association="Self.FK_SANPHAM_HANG_LOAISP1">
+      <End Role="HANG_LOAISP" EntitySet="HANG_LOAISP" />
+      <End Role="SANPHAM" EntitySet="SANPHAM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THE_CHITIET_THE" Association="Self.FK_THE_CHITIET_THE">
+      <End Role="THE" EntitySet="THE" />
+      <End Role="THE_CHITIET" EntitySet="THE_CHITIET" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

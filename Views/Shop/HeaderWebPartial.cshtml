@@ -1,0 +1,100 @@
+﻿@{ 
+    Nhom4_LTWeb.Models.KHACHHANG kh = (Nhom4_LTWeb.Models.KHACHHANG)Session["UserName"];
+    Session["null"] = null;
+}
+
+<section class="myHeader">
+    <div class="container py-3 ">
+        <div class="row">
+            <div class="col-md-2 col-sm-12 py-sm img-fluid"><img src="~/image/logo.png" alt="" srcset=""></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-8">
+                        @using (Html.BeginForm("SanDuLieu", "LocSanPham", FormMethod.Get))
+                        {
+                            <div class="input-group mb-3 col-md d-flex">
+                                <input type="text" class="form-control" type="text" name="TenSP" placeholder="Nhập sản phẩm bạn muốn tìm :3" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <button class="p-0 border-0 bg-white mx-1" ><span class="input-group-text p-3" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"></i></span></button>
+                                
+                            </div>
+                        }
+                        </div>
+                </div>
+            </div>
+
+            @if (kh != null)
+            {
+                <div class="col-md-2">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="#" class="fa-solid fa-arrow-right-from-bracket py-3 text-danger" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item"><a href="@Url.Action("ThongTin", "Account", new {id=kh.MaTK})">Thông tin</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-item"><a href="@Url.Action("DangXuat", "Account")">Đăng xuất</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3"><a href="" class="text-danger"><i class="fa-solid fa-address-book py-3"></i></a></div>
+
+                        <div class="col-md-3">
+                            <a href="@Url.Action("WishList","WishList")" class="text-danger position-relative">
+                                <span><i class="fa-regular fa-heart py-3"></i></span>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">
+                                    @ViewBag.TongWL
+                                </span>
+                            </a>
+                        </div>
+
+                        <div class="col-md-3">
+                            <a href="@Url.Action("GioHang","GioHang")" class="text-danger position-relative">
+                                <span><i class="fa-solid fa-cart-shopping py-3"></i></span>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">
+                                    @Html.Action("GioHangPartial", "GioHang")
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-2">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="#" class="fa-solid fa-user py-3 text-danger" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item"><a href="@Url.Action("DangKy", "Account")">Đăng ký</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-item"><a href="@Url.Action("DangNhap", "Account", new {url = Request.Url.ToString()})">Đăng nhập</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3"><a href="" class="text-danger"><i class="fa-solid fa-address-book py-3"></i></a></div>
+
+                        <div class="col-md-3">
+                            <a href="" class="text-danger position-relative">
+                                <span><i class="fa-solid fa-cart-shopping py-3"></i></span>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">
+                                    0
+                                </span>
+                            </a>
+                        </div>
+
+                        <div class="col-md-3">
+                            <a href="@Url.Action("GioHang","GioHang")" class="text-danger position-relative">
+                                <span><i class="fa-regular fa-heart py-3"></i></span>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">
+                                   0
+                                </span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

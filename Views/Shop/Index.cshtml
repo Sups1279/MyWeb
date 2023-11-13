@@ -1,0 +1,72 @@
+﻿@model Nhom4_LTWeb.Models.GetALLModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@Html.Action("NavQCPartial", "Shop")
+<section class="MyBody py-2">
+    <div class="container">
+        @foreach (var item in Model.GetsLOAISPModels)
+        {
+            <div class="row">
+                <div class="nav nav-tabs justify-content-between">
+                    <div class="nav-item">
+                        <a class="nav-link bg-danger text-white active" aria-current="page" href="@Url.Action("SanDuLieu","LocSanPham",new {maLSP = item.MaLSP})"><h1>@item.TenLoaiSP</h1></a>
+                    </div>
+                    <div class="nav-item">
+
+                    </div>
+                    <div class="nav navbar-expand-lg ">
+                        @foreach (var item1 in Model.GetHANG_LOAISPModels.Where(n => n.MaLSP == item.MaLSP))
+                        {
+                            foreach (var item2 in Model.GetHANGModels.Where(c => c.MaHang == @item1.MaHang))
+                            {
+                                <li class="align-self-center nav-item mx-1"><a class="nav-link text-bg-danger rounded-1 px-1" role="button" href="@Url.Action("SanDuLieu","LocSanPham",new {maLSP = item1.MaLSP,maHang = item1.MaHang})"><p class="MYSP m-0 fw-bold">@item2.TenHang</p></a></li>
+                            }
+                        }
+                        <li class="align-self-center nav-item mx-1"><a class="nav-link text-bg-danger rounded-1 px-1" role="button" href="#"><p class="MYSP m-0 fw-bold">Xem tất cả</p></a></li>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="row py-3">
+                            <div class="owl-carousel owl-theme">
+                                @foreach (var sanpham in Model.GetSANPHAMModels.Where(n => n.MaLSP == item.MaLSP))
+                                {
+                                    <div class="img-thumbnail container item">
+                                        <a href="@Url.Action("Details", "Shop", new { masp = sanpham.MaSP })" style="text-decoration:none;">
+                                            <div class="~/image"><img src="~/image/download (1).jpg" alt="" srcset="" class="container"></div>
+                                            <div class="container-fluid mb-4">
+                                                <h3 class="fw-bold nameproduct py-3 text-dark">@sanpham.TenSP</h3>
+                                                <div class="gia">
+                                                    <p class="fw-bold text-danger mx-0">@sanpham.GiaSP đ</p>
+                                                    <div class="gialendoi d-flex">
+                                                       
+                                                        <p class="fw-bold text-danger">@sanpham.GiaSP đ</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="d-flex justify-content-between mx-2">
+                                            <a href="@Url.Action("ThemWishList", "WishList", new { maSP = sanpham.MaSP, url = Request.Url.ToString() })" class="wishList align-self-center">@if (Model.GetWISHLISTModels.Where(n => n.MaSP == sanpham.MaSP).Count() > 0)
+                                            {<i class="fa-solid fa-heart align-self-center text-danger"></i>}
+                                            else { <i class="fa-solid fa-heart align-self-center"></i>}</a>
+
+<a href="@Url.Action("ThemGioHang", "GioHang", new {maSP = sanpham.MaSP,url = Request.Url.ToString()})" class="btn btn-primary fw-bold" role="button"><i class="fa-solid fa-cart-shopping"></i></a>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        }
+
+    </div>
+</section>
+@section FooterPartial{
+    @Html.Action("FooterPartial", "Shop")
+}

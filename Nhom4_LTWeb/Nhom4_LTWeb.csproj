@@ -129,7 +129,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Class\ConnectData.cs" />
+    <Compile Include="Class\MD5Hash.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\LocSanPhamController.cs" />
@@ -188,6 +192,11 @@
       <LastGenOutput>DbMyWeb.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPham\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
     <None Include="Models\DbMyWeb.dbml.layout">
       <DependentUpon>DbMyWeb.dbml</DependentUpon>
     </None>

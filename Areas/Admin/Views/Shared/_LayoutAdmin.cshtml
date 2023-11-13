@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html>
+<!--Head-->
+<head>
+    <meta charset="utf-8" name="viewpoint" content="width=device-width, initial-scale=1">
+    <!--Scripts-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--Style-->
+    <style type="text/css">
+        .imgbook {
+            transition: all 1s ease-in;
+            width: 400px;
+        }
+
+            .imgbook:hover {
+                transform: scale(0.9);
+                cursor: pointer;
+            }
+
+        .imgsachbannhieu {
+            width: 100px;
+        }
+    </style>
+
+
+    <!--Title-->
+    <title>@ViewBag.Title</title>
+</head>
+<!--Body-->
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navAdmin" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">Muda Store</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navAdmin">
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Index","SanPham")">Quản lý sản phẩm</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer class="container well">
+        <div style="text-align:center;">
+            <p>Chỉ dành cho Quản trị viên</p>
+        </div>
+    </footer>
+</body>
+</html>
+

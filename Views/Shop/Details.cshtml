@@ -1,0 +1,266 @@
+﻿@model Nhom4_LTWeb.Models.GetALLModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="bodyp py-2">
+    @foreach (var item in Model.GetSANPHAMModels)
+    {
+    <div class="container">
+        <div class="row">
+            <div class="tenSP">
+                <h4 class="my-0 p-1">@item.TenSP</h4>
+            </div>
+            <hr class="fw-bold my-2">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="container img-thumbnail">
+                        <div class="owl-carousels owl-theme owl-loaded owl-drag">
+                            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="~/image/anime-goblin-slayer-onna-shinkan-wallpaper-preview.jpg" class="d-block w-100" height="500px" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="~/image/yck5pgoudbuw_sjiz62z2u8nta-06bkv_66gcq_byom.jpeg" class="d-block w-100" height="500px" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="~/image/goblin_SL.jpg" class="d-block w-100" height="500px" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 mx-4">
+                <div class="row">
+                       <h3 class="text-center">GIÁ SẢN PHẨM</h3>
+                      <a href="@Url.Action("ThemGioHang", "GioHang", new {maSP = item.MaSP,url = Request.Url.ToString()})" role="button" class="col-md-4 border border-3 rounded-4 border-danger mx-2 text-decoration-none text-danger text-center"><h5>@item.GiaSP Đ</h5></a>
+                </div>
+                <div class="row d-flex py-3">
+                    <a href="@Url.Action("ThemGioHang", "GioHang", new {maSP = item.MaSP,url = Request.Url.ToString()})" role="button" class="bg-danger text-white text-decoration-none btn btn-danger col-md-9"><h5>Mua sản phẩm</h5></a>
+                    <a href="@Url.Action("ThemGioHang", "GioHang", new {maSP = item.MaSP,url = Request.Url.ToString()})" role="button" class="col-md-2 border border-3 rounded-4 border-danger mx-2"><i class="fa-solid fa-cart-shopping text-danger w-100 text-center my-2" style="vertical-align: middle;"></i></a>
+                </div>
+                <div class="MoTaThongSo">
+                    <h4>Thông số kỹ thuật</h4>
+                    <table class="table table-striped">
+                        <thead>
+                        <tbody>
+                            @foreach (var item2 in Model.GetCHITIET_SPModels.Where(n => n.MaSP == item.MaSP).Take(4))
+                            {
+                                <tr>
+
+                                    <th scope="row">@Model.GetTHEModels.Where(n => n.MaTH == item2.MaTH).Select(n => n.TenThe).SingleOrDefault()</th>
+
+                                    <th scope="row">@Model.GetTHE_CHITIETModels.Where(n=>n.MaThongSo == item2.MaThongSo).Select(n=>n.ThongSo).SingleOrDefault()</th>
+                                </tr>
+                            }
+                            </tbody>
+                    </table>
+
+
+                </div>
+                <div class="xemthem">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                       Xem chi tiết
+                    </button>
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="exampleModalLongTitle"></h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tbody>
+                                            @foreach (var item2 in Model.GetCHITIET_SPModels.Where(n => n.MaSP == item.MaSP))
+                                            {
+                                                <tr>
+
+                                                    <th scope="row">@Model.GetTHEModels.Where(n => n.MaTH == item2.MaTH).Select(n => n.TenThe).SingleOrDefault()</th>
+
+                                                    <th scope="row">@Model.GetTHE_CHITIETModels.Where(n => n.MaThongSo == item2.MaThongSo).Select(n => n.ThongSo).SingleOrDefault()</th>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="MoTaSanPham col-md-7 px-0 py-3">
+                    <div class="nav nav-tabs justify-content-between">
+                        <div class="nav-item">
+                            <a class="nav-link bg-danger text-white active" aria-current="page" href="#"><h5>MÔ TẢ SẢN PHẨM</h5></a>
+                        </div>
+                    </div>
+                        @item.MoTa   
+                </div>
+            </div>
+            <div class="row">
+                <div class="nav nav-tabs justify-content-between">
+                    <div class="nav-item">
+                        <a class="nav-link bg-danger text-white active" aria-current="page" href="#"><h5>SẢN PHẨM TƯƠNG TỰ</h5></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div class="row py-3">
+                        <div class="owl-carousel owl-theme">
+
+                            <div class="img-thumbnail container item">
+                                <div class="image"><img src="~/image/download (1).jpg" alt="" srcset="" class="container"></div>
+                                <div class="container-fluid mb-4">
+                                    <h3 class="fw-bold nameproduct py-3">Tên sản phẩm 1</h3>
+                                    <div class="gia">
+                                        <p class="fw-bold text-danger mx-0">19.999.999 đ</p>
+                                        <div class="gialendoi d-flex">
+                                            <p class="font-italic align-self-center" style="font-size: 13px;">Giá lên đời:</p>
+                                            <p class="fw-bold text-danger">19.999.999 đ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between mx-2">
+                                    <a href="http://" class="wishList align-self-center"><i class="fa-solid fa-heart align-self-center"></i></a>
+                                    <a href="http://" class="btn btn-primary fw-bold" role="button"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </div>
+                            </div>
+                            <div class="img-thumbnail container item">
+                                <div class="~/image"><img src="~/image/download (1).jpg" alt="" srcset="" class="container"></div>
+                                <div class="container-fluid mb-4">
+                                    <h3 class="fw-bold nameproduct py-3">Tên sản phẩm 2</h3>
+                                    <div class="gia">
+                                        <p class="fw-bold text-danger mx-0">19.999.999 đ</p>
+                                        <div class="gialendoi d-flex">
+                                            <p class="font-italic align-self-center" style="font-size: 13px;">Giá lên đời:</p>
+                                            <p class="fw-bold text-danger">19.999.999 đ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between mx-2">
+                                    <a href="http://" class="wishList align-self-center"><i class="fa-solid fa-heart align-self-center"></i></a>
+                                    <a href="http://" class="btn btn-primary fw-bold" role="button"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </div>
+                            </div>
+                            <div class="img-thumbnail container item">
+                                <div class="~/image"><img src="~/image/download (1).jpg" alt="" srcset="" class="container"></div>
+                                <div class="container-fluid mb-4">
+                                    <h3 class="fw-bold nameproduct py-3">Tên sản phẩm 3</h3>
+                                    <div class="gia">
+                                        <p class="fw-bold text-danger mx-0">19.999.999 đ</p>
+                                        <div class="gialendoi d-flex">
+                                            <p class="font-italic align-self-center" style="font-size: 13px;">Giá lên đời:</p>
+                                            <p class="fw-bold text-danger">19.999.999 đ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between mx-2">
+                                    <a href="http://" class="wishList align-self-center"><i class="fa-solid fa-heart align-self-center"></i></a>
+                                    <a href="http://" class="btn btn-primary fw-bold" role="button"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </div>
+                            </div>
+                            <div class="img-thumbnail container item">
+                                <div class="~/image"><img src="~/image/download (1).jpg" alt="" srcset="" class="container"></div>
+                                <div class="container-fluid mb-4">
+                                    <h3 class="fw-bold nameproduct py-3">Tên sản phẩm 4</h3>
+                                    <div class="gia">
+                                        <p class="fw-bold text-danger mx-0">19.999.999 đ</p>
+                                        <div class="gialendoi d-flex">
+                                            <p class="font-italic align-self-center" style="font-size: 13px;">Giá lên đời:</p>
+                                            <p class="fw-bold text-danger">19.999.999 đ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between mx-2">
+                                    <a href="http://" class="wishList align-self-center"><i class="fa-solid fa-heart align-self-center"></i></a>
+                                    <a href="http://" class="btn btn-primary fw-bold" role="button"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </div>
+                            </div>
+                            <div class="img-thumbnail container item">
+                                <div class="~/image"><img src="~/image/download (1).jpg" alt="" srcset="" class="container"></div>
+                                <div class="container-fluid mb-4">
+                                    <h3 class="fw-bold nameproduct py-3">Tên sản phẩm 5</h3>
+                                    <div class="gia">
+                                        <p class="fw-bold text-danger mx-0">19.999.999 đ</p>
+                                        <div class="gialendoi d-flex">
+                                            <p class="font-italic align-self-center" style="font-size: 13px;">Giá lên đời:</p>
+                                            <p class="fw-bold text-danger">19.999.999 đ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between mx-2">
+                                    <a href="http://" class="wishList align-self-center"><i class="fa-solid fa-heart align-self-center"></i></a>
+                                    <a href="http://" class="btn btn-primary fw-bold" role="button"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </div>
+                            </div>
+                            <div class="img-thumbnail container item">
+                                <div class="image"><img src="~/image/download (1).jpg" alt="" srcset="" class="container"></div>
+                                <div class="container-fluid mb-4">
+                                    <h3 class="fw-bold nameproduct py-3">Tên sản phẩm 6</h3>
+                                    <div class="gia">
+                                        <p class="fw-bold text-danger mx-0">19.999.999 đ</p>
+                                        <div class="gialendoi d-flex">
+                                            <p class="font-italic align-self-center" style="font-size: 13px;">Giá lên đời:</p>
+                                            <p class="fw-bold text-danger">19.999.999 đ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between mx-2">
+                                    <a href="http://" class="wishList align-self-center"><i class="fa-solid fa-heart align-self-center"></i></a>
+                                    <a href="http://" class="btn btn-primary fw-bold" role="button"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="binhluan col-md-8">
+            <div class="row pb-3">
+                <div class="nav nav-tabs justify-content-between">
+                    <div class="nav-item">
+                        <a class="nav-link bg-danger text-white active" aria-current="page" href="#"><h5>BÌNH LUẬN</h5></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container d-flex justify-content-between mx-4">
+                    <textarea class="col-md-11 mx-1" placeholder="Hãy nhập bình luận"></textarea>
+                    <a href="http://" class="btn border border-3 border-danger"><i class="fa-regular fa-paper-plane text-danger w-100 my-2"></i></a>
+                </div>
+                <div class="LoiBInhLuan mx-4">
+                    <p>ạdaksdjbaskdbakdjasbdkjasbdkjasb</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    }
+</section>
