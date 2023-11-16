@@ -39,6 +39,9 @@ namespace Nhom4_LTWeb.Models
     partial void InsertBANNERSALE(BANNERSALE instance);
     partial void UpdateBANNERSALE(BANNERSALE instance);
     partial void DeleteBANNERSALE(BANNERSALE instance);
+    partial void InsertBINH_LUAN(BINH_LUAN instance);
+    partial void UpdateBINH_LUAN(BINH_LUAN instance);
+    partial void DeleteBINH_LUAN(BINH_LUAN instance);
     partial void InsertCHITIETDATHANG(CHITIETDATHANG instance);
     partial void UpdateCHITIETDATHANG(CHITIETDATHANG instance);
     partial void DeleteCHITIETDATHANG(CHITIETDATHANG instance);
@@ -69,9 +72,13 @@ namespace Nhom4_LTWeb.Models
     partial void InsertTHE_CHITIET(THE_CHITIET instance);
     partial void UpdateTHE_CHITIET(THE_CHITIET instance);
     partial void DeleteTHE_CHITIET(THE_CHITIET instance);
-    #endregion
-		
-		public DbMyWebDataContext(string connection) : 
+        #endregion
+        public DbMyWebDataContext() :
+                base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ComputerMudaConnectionString1"].ConnectionString, mappingSource)
+        {
+            OnCreated();
+        }
+        public DbMyWebDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -196,6 +203,14 @@ namespace Nhom4_LTWeb.Models
 			get
 			{
 				return this.GetTable<LOAISP>();
+			}
+		}
+		
+		public System.Data.Linq.Table<RECOMMENT> RECOMMENTs
+		{
+			get
+			{
+				return this.GetTable<RECOMMENT>();
 			}
 		}
 		
@@ -853,10 +868,12 @@ namespace Nhom4_LTWeb.Models
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BINH_LUAN")]
-	public partial class BINH_LUAN
+	public partial class BINH_LUAN : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private string _MaBL;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaBL;
 		
 		private string _BinhLuan;
 		
@@ -866,12 +883,35 @@ namespace Nhom4_LTWeb.Models
 		
 		private System.Nullable<int> _MaTK;
 		
+		private EntityRef<KHACHHANG> _KHACHHANG;
+		
+		private EntityRef<SANPHAM> _SANPHAM;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaBLChanging(int value);
+    partial void OnMaBLChanged();
+    partial void OnBinhLuanChanging(string value);
+    partial void OnBinhLuanChanged();
+    partial void OnDiemChanging(System.Nullable<int> value);
+    partial void OnDiemChanged();
+    partial void OnMaSPChanging(System.Nullable<int> value);
+    partial void OnMaSPChanged();
+    partial void OnMaTKChanging(System.Nullable<int> value);
+    partial void OnMaTKChanged();
+    #endregion
+		
 		public BINH_LUAN()
 		{
+			this._KHACHHANG = default(EntityRef<KHACHHANG>);
+			this._SANPHAM = default(EntityRef<SANPHAM>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBL", DbType="NChar(10)")]
-		public string MaBL
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBL", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MaBL
 		{
 			get
 			{
@@ -881,12 +921,16 @@ namespace Nhom4_LTWeb.Models
 			{
 				if ((this._MaBL != value))
 				{
+					this.OnMaBLChanging(value);
+					this.SendPropertyChanging();
 					this._MaBL = value;
+					this.SendPropertyChanged("MaBL");
+					this.OnMaBLChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BinhLuan", DbType="NVarChar(130)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BinhLuan", DbType="NVarChar(400)")]
 		public string BinhLuan
 		{
 			get
@@ -897,7 +941,11 @@ namespace Nhom4_LTWeb.Models
 			{
 				if ((this._BinhLuan != value))
 				{
+					this.OnBinhLuanChanging(value);
+					this.SendPropertyChanging();
 					this._BinhLuan = value;
+					this.SendPropertyChanged("BinhLuan");
+					this.OnBinhLuanChanged();
 				}
 			}
 		}
@@ -913,7 +961,11 @@ namespace Nhom4_LTWeb.Models
 			{
 				if ((this._Diem != value))
 				{
+					this.OnDiemChanging(value);
+					this.SendPropertyChanging();
 					this._Diem = value;
+					this.SendPropertyChanged("Diem");
+					this.OnDiemChanged();
 				}
 			}
 		}
@@ -929,7 +981,15 @@ namespace Nhom4_LTWeb.Models
 			{
 				if ((this._MaSP != value))
 				{
+					if (this._SANPHAM.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaSPChanging(value);
+					this.SendPropertyChanging();
 					this._MaSP = value;
+					this.SendPropertyChanged("MaSP");
+					this.OnMaSPChanged();
 				}
 			}
 		}
@@ -945,8 +1005,104 @@ namespace Nhom4_LTWeb.Models
 			{
 				if ((this._MaTK != value))
 				{
+					if (this._KHACHHANG.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaTKChanging(value);
+					this.SendPropertyChanging();
 					this._MaTK = value;
+					this.SendPropertyChanged("MaTK");
+					this.OnMaTKChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHACHHANG_BINH_LUAN", Storage="_KHACHHANG", ThisKey="MaTK", OtherKey="MaTK", IsForeignKey=true)]
+		public KHACHHANG KHACHHANG
+		{
+			get
+			{
+				return this._KHACHHANG.Entity;
+			}
+			set
+			{
+				KHACHHANG previousValue = this._KHACHHANG.Entity;
+				if (((previousValue != value) 
+							|| (this._KHACHHANG.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._KHACHHANG.Entity = null;
+						previousValue.BINH_LUANs.Remove(this);
+					}
+					this._KHACHHANG.Entity = value;
+					if ((value != null))
+					{
+						value.BINH_LUANs.Add(this);
+						this._MaTK = value.MaTK;
+					}
+					else
+					{
+						this._MaTK = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("KHACHHANG");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SANPHAM_BINH_LUAN", Storage="_SANPHAM", ThisKey="MaSP", OtherKey="MaSP", IsForeignKey=true)]
+		public SANPHAM SANPHAM
+		{
+			get
+			{
+				return this._SANPHAM.Entity;
+			}
+			set
+			{
+				SANPHAM previousValue = this._SANPHAM.Entity;
+				if (((previousValue != value) 
+							|| (this._SANPHAM.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SANPHAM.Entity = null;
+						previousValue.BINH_LUANs.Remove(this);
+					}
+					this._SANPHAM.Entity = value;
+					if ((value != null))
+					{
+						value.BINH_LUANs.Add(this);
+						this._MaSP = value.MaSP;
+					}
+					else
+					{
+						this._MaSP = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("SANPHAM");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -2014,6 +2170,8 @@ namespace Nhom4_LTWeb.Models
 		
 		private EntitySet<WISHLIST> _WISHLISTs;
 		
+		private EntitySet<BINH_LUAN> _BINH_LUANs;
+		
 		private EntitySet<DONHANG> _DONHANGs;
 		
     #region Extensibility Method Definitions
@@ -2041,6 +2199,7 @@ namespace Nhom4_LTWeb.Models
 		public KHACHHANG()
 		{
 			this._WISHLISTs = new EntitySet<WISHLIST>(new Action<WISHLIST>(this.attach_WISHLISTs), new Action<WISHLIST>(this.detach_WISHLISTs));
+			this._BINH_LUANs = new EntitySet<BINH_LUAN>(new Action<BINH_LUAN>(this.attach_BINH_LUANs), new Action<BINH_LUAN>(this.detach_BINH_LUANs));
 			this._DONHANGs = new EntitySet<DONHANG>(new Action<DONHANG>(this.attach_DONHANGs), new Action<DONHANG>(this.detach_DONHANGs));
 			OnCreated();
 		}
@@ -2218,6 +2377,19 @@ namespace Nhom4_LTWeb.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHACHHANG_BINH_LUAN", Storage="_BINH_LUANs", ThisKey="MaTK", OtherKey="MaTK")]
+		public EntitySet<BINH_LUAN> BINH_LUANs
+		{
+			get
+			{
+				return this._BINH_LUANs;
+			}
+			set
+			{
+				this._BINH_LUANs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHACHHANG_DONHANG", Storage="_DONHANGs", ThisKey="MaTK", OtherKey="MaTK")]
 		public EntitySet<DONHANG> DONHANGs
 		{
@@ -2258,6 +2430,18 @@ namespace Nhom4_LTWeb.Models
 		}
 		
 		private void detach_WISHLISTs(WISHLIST entity)
+		{
+			this.SendPropertyChanging();
+			entity.KHACHHANG = null;
+		}
+		
+		private void attach_BINH_LUANs(BINH_LUAN entity)
+		{
+			this.SendPropertyChanging();
+			entity.KHACHHANG = this;
+		}
+		
+		private void detach_BINH_LUANs(BINH_LUAN entity)
 		{
 			this.SendPropertyChanging();
 			entity.KHACHHANG = null;
@@ -2435,6 +2619,51 @@ namespace Nhom4_LTWeb.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RECOMMENT")]
+	public partial class RECOMMENT
+	{
+		
+		private System.Nullable<int> _MaBL;
+		
+		private string _NoiDung;
+		
+		public RECOMMENT()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBL", DbType="Int")]
+		public System.Nullable<int> MaBL
+		{
+			get
+			{
+				return this._MaBL;
+			}
+			set
+			{
+				if ((this._MaBL != value))
+				{
+					this._MaBL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoiDung", DbType="NVarChar(400)")]
+		public string NoiDung
+		{
+			get
+			{
+				return this._NoiDung;
+			}
+			set
+			{
+				if ((this._NoiDung != value))
+				{
+					this._NoiDung = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SANPHAM")]
 	public partial class SANPHAM : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2462,6 +2691,8 @@ namespace Nhom4_LTWeb.Models
 		private System.Nullable<int> _SoLuong;
 		
 		private EntitySet<WISHLIST> _WISHLISTs;
+		
+		private EntitySet<BINH_LUAN> _BINH_LUANs;
 		
 		private EntitySet<CHITIETDATHANG> _CHITIETDATHANGs;
 		
@@ -2498,6 +2729,7 @@ namespace Nhom4_LTWeb.Models
 		public SANPHAM()
 		{
 			this._WISHLISTs = new EntitySet<WISHLIST>(new Action<WISHLIST>(this.attach_WISHLISTs), new Action<WISHLIST>(this.detach_WISHLISTs));
+			this._BINH_LUANs = new EntitySet<BINH_LUAN>(new Action<BINH_LUAN>(this.attach_BINH_LUANs), new Action<BINH_LUAN>(this.detach_BINH_LUANs));
 			this._CHITIETDATHANGs = new EntitySet<CHITIETDATHANG>(new Action<CHITIETDATHANG>(this.attach_CHITIETDATHANGs), new Action<CHITIETDATHANG>(this.detach_CHITIETDATHANGs));
 			this._HINHs = new EntitySet<HINH>(new Action<HINH>(this.attach_HINHs), new Action<HINH>(this.detach_HINHs));
 			this._HANG_LOAISP = default(EntityRef<HANG_LOAISP>);
@@ -2652,7 +2884,7 @@ namespace Nhom4_LTWeb.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HinhAnh", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HinhAnh", DbType="VarChar(50)")]
 		public string HinhAnh
 		{
 			get
@@ -2722,6 +2954,19 @@ namespace Nhom4_LTWeb.Models
 			set
 			{
 				this._WISHLISTs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SANPHAM_BINH_LUAN", Storage="_BINH_LUANs", ThisKey="MaSP", OtherKey="MaSP")]
+		public EntitySet<BINH_LUAN> BINH_LUANs
+		{
+			get
+			{
+				return this._BINH_LUANs;
+			}
+			set
+			{
+				this._BINH_LUANs.Assign(value);
 			}
 		}
 		
@@ -2814,6 +3059,18 @@ namespace Nhom4_LTWeb.Models
 		}
 		
 		private void detach_WISHLISTs(WISHLIST entity)
+		{
+			this.SendPropertyChanging();
+			entity.SANPHAM = null;
+		}
+		
+		private void attach_BINH_LUANs(BINH_LUAN entity)
+		{
+			this.SendPropertyChanging();
+			entity.SANPHAM = this;
+		}
+		
+		private void detach_BINH_LUANs(BINH_LUAN entity)
 		{
 			this.SendPropertyChanging();
 			entity.SANPHAM = null;

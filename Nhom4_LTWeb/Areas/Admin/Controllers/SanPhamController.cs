@@ -12,7 +12,7 @@ namespace Nhom4_LTWeb.Areas.Admin.Controllers
 {
     public class SanPhamController : Controller
     {
-        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=LAPTOP-VC5IF5QK\\SQLEXPRESS;Initial Catalog=ComputerMuda;Integrated Security=True");
+        DbMyWebDataContext db = new DbMyWebDataContext();
         // GET: Admin/SanPham
         public ActionResult Index(int? page)
         {

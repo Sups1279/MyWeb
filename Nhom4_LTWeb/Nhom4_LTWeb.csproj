@@ -141,6 +141,7 @@
     <Compile Include="Class\ConnectData.cs" />
     <Compile Include="Class\MD5Hash.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BinhLuanController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\LocSanPhamController.cs" />
     <Compile Include="Controllers\WishListController.cs" />
@@ -159,7 +160,6 @@
     </Compile>
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User\BinhLuanController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -184,8 +184,30 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Hinh\iphone.png" />
+    <Content Include="Hinh\laptopacer.png" />
+    <Content Include="Hinh\laptop asus.png" />
+    <Content Include="Hinh\laptop dell.png" />
+    <Content Include="Hinh\laptop hp.png" />
+    <Content Include="Hinh\laptop macbook.png" />
+    <Content Include="Hinh\laptop msi.png" />
+    <Content Include="Hinh\laptop surface.png" />
+    <Content Include="Hinh\laptop thinkpad.png" />
+    <Content Include="Hinh\may tinh acer.png" />
+    <Content Include="Hinh\may tinh asus.png" />
+    <Content Include="Hinh\may tinh dell.png" />
+    <Content Include="Hinh\may tinh hp.png" />
+    <Content Include="Hinh\may tinh msi.png" />
+    <Content Include="Hinh\Nokia.png" />
+    <Content Include="Hinh\Oppo.png" />
+    <Content Include="Hinh\Realme.png" />
+    <Content Include="Hinh\samsung.png" />
+    <Content Include="Hinh\Techno.png" />
+    <Content Include="Hinh\Vivo.png" />
+    <Content Include="Hinh\Xiaomi.png" />
     <Content Include="image\anime-goblin-slayer-onna-shinkan-wallpaper-preview.jpg" />
     <Content Include="image\download %281%29.jpg" />
+    <Content Include="image\download.png" />
     <Content Include="image\goblin_SL.jpg" />
     <Content Include="image\logo.png" />
     <Content Include="image\yck5pgoudbuw_sjiz62z2u8nta-06bkv_66gcq_byom.jpeg" />
@@ -251,10 +273,11 @@
     <Content Include="Views\WishList\WishList.cshtml" />
     <Content Include="Views\WishList\WishListPartial.cshtml" />
     <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
-    <Content Include="Views\BinhLuan\BinhLuan.cshtml" />
+    <Content Include="Views\BinhLuan\CommentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="User\" />
     <Folder Include="Views\SearchItem\" />
   </ItemGroup>
   <ItemGroup>

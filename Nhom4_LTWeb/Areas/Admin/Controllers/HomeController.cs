@@ -9,7 +9,7 @@ namespace Nhom4_LTWeb.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
-        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=.;Initial Catalog=ComputerMuda;Integrated Security=True");
+        DbMyWebDataContext db = new DbMyWebDataContext();
         // GET: Admin/Home
         public ActionResult Index()
         {

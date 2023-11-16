@@ -21,5 +21,6 @@ namespace Nhom4_LTWeb.Models
         public IEnumerable<Models.THE_CHITIET> GetTHE_CHITIETModels { get; set; }
         public IEnumerable<Models.WISHLIST> GetWISHLISTModels { get; set; }
         public IEnumerable<Models.ChiTietSP> GetChiTietSPModels { get; set; }
+        public IEnumerable<Models.RECOMMENT> GetRECOMMENTModels { get; set;}
     }
 }

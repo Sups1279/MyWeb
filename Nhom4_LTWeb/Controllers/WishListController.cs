@@ -10,7 +10,7 @@ namespace Nhom4_LTWeb.Controllers
     public class WishListController : Controller
     {
         // GET: WishList
-        DbMyWebDataContext db = new DbMyWebDataContext("Data Source=LAPTOP-VC5IF5QK\\SQLEXPRESS;Initial Catalog=ComputerMuda;Integrated Security=True");
+        DbMyWebDataContext db = new DbMyWebDataContext();
 
         public ActionResult Index()
         {
@@ -52,6 +52,7 @@ namespace Nhom4_LTWeb.Controllers
             }
             if (db.WISHLISTs.Where(n => n.MaTK == kh.MaTK).Count() == 0)
             {
+
                 return RedirectToAction("Index", "Shop");
             }
             item.GetWISHLISTModels = db.WISHLISTs.Where(n => n.MaTK == kh.MaTK);

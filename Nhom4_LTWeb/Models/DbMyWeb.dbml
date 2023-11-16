@@ -33,11 +33,12 @@
   </Table>
   <Table Name="dbo.BINH_LUAN" Member="BINH_LUANs">
     <Type Name="BINH_LUAN">
-      <Column Name="MaBL" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="BinhLuan" Type="System.String" DbType="NVarChar(130)" CanBeNull="true" />
+      <Column Name="MaBL" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BinhLuan" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
       <Column Name="Diem" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaTK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BINH_LUAN_RECOMMENT" Member="RECOMMENTs" ThisKey="MaBL" OtherKey="MaBL" Type="RECOMMENT" />
       <Association Name="KHACHHANG_BINH_LUAN" Member="KHACHHANG" ThisKey="MaTK" OtherKey="MaTK" Type="KHACHHANG" IsForeignKey="true" />
       <Association Name="SANPHAM_BINH_LUAN" Member="SANPHAM" ThisKey="MaSP" OtherKey="MaSP" Type="SANPHAM" IsForeignKey="true" />
     </Type>
@@ -129,6 +130,13 @@
       <Association Name="LOAISP_HANG_LOAISP" Member="HANG_LOAISPs" ThisKey="MaLSP" OtherKey="MaLSP" Type="HANG_LOAISP" />
     </Type>
   </Table>
+  <Table Name="dbo.RECOMMENT" Member="RECOMMENTs">
+    <Type Name="RECOMMENT">
+      <Column Name="MaBL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Association Name="BINH_LUAN_RECOMMENT" Member="BINH_LUAN" ThisKey="MaBL" OtherKey="MaBL" Type="BINH_LUAN" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.SANPHAM" Member="SANPHAMs">
     <Type Name="SANPHAM">
       <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -138,7 +146,7 @@
       <Column Name="TenSP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="GiaSP" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="MoTa" Type="System.String" DbType="NVarChar(230)" CanBeNull="true" />
-      <Column Name="HinhAnh" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="DiemDanhGia" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="SANPHAM_WISHLIST" Member="WISHLISTs" ThisKey="MaSP" OtherKey="MaSP" Type="WISHLIST" />
