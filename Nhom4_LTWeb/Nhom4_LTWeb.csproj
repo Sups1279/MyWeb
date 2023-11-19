@@ -227,6 +227,10 @@
     <Content Include="Areas\Admin\Views\SanPham\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\SanPham\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPham\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPham\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPham\Details.cshtml" />
     <None Include="Models\DbMyWeb.dbml.layout">
       <DependentUpon>DbMyWeb.dbml</DependentUpon>
     </None>

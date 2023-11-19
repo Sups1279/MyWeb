@@ -1,0 +1,60 @@
+﻿@model Nhom4_LTWeb.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Details</h2>
+
+<div>
+    <h4>SACH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên sản phẩm: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+           Mô tả sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.MoTa.ToString().Replace("\n", "<p></p>"))
+        </dd>
+
+        <dt>
+            Ảnh Sản phẩm
+        </dt>
+
+        <dd>
+            <img src="~/Images/@Model.HinhAnh" alt="@Model.HinhAnh" />
+        </dd>
+
+
+        <dt>
+           Số lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+           GIá sản phẩm
+        </dt>
+
+        <dd>
+            @Html.FormatValue(Model.GiaSP, "{0:#,##0}") VNĐ
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaSP }) |
+    @Html.ActionLink("Về trang quản lý", "Index")
+</p>
+

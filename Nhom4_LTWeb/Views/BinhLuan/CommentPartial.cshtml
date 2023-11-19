@@ -21,7 +21,7 @@
                             {
                                 <input type="text" class="visually-hidden" required value="@kh.MaTK" id="MaTK" name="MaTK" />
                             }
-                            <input type="text" class="visually-hidden" required value="@Model.GetSANPHAMModels.Select(n=>n.MaSP).SingleOrDefault()" id="MaSP" name="MaSP" />
+                            <input type="text" class="visually-hidden" required value="@Model.GetSANPHAMModels.Select(n=>n.MaSP).Take(1).SingleOrDefault()" id="MaSP" name="MaSP" />
                             <input type="text" class="visually-hidden" required value="@Request.Url.ToString()" id="url" name="url" />
 
                             <textarea class="col-md-11 mx-1" id="BinhLuan" name="BinhLuan" placeholder="Hãy nhập bình luận"></textarea>
@@ -39,29 +39,51 @@
 
                                             @foreach (var item in Model.GetBINHLUANModels)
                                             {
-                                            <div class="row mt-2">
-                                                <div class="col">
-                                                    <div class="d-flex flex-start">
-                                                        <img class="rounded-circle shadow-1-strong me-3"
-                                                             src="~/image/download.png" alt="avatar" width="65"
-                                                             height="65" />
-                                                        <div class="flex-grow-1 flex-shrink-1">
-                                                            <div>
-                                                                <div class="d-flex justify-content-between align-items-center">
-                                                                    <p class="mb-1">
-                                                                        @Model.GetKHACHHANGModels.Where(n => n.MaTK == item.MaTK).Select(n => n.HoTen).SingleOrDefault()
+                                                <div class="row mt-1">
+                                                    <div class="col">
+                                                        <div class="d-flex flex-start">
+                                                            <img class="rounded-circle shadow-1-strong me-3"
+                                                                 src="~/image/download.png" alt="avatar" width="65"
+                                                                 height="65" />
+                                                            <div class="flex-grow-1 flex-shrink-1 border border-1 p-1 rounded-1">
+                                                                <div>
+                                                                    <div class="d-flex justify-content-between align-items-center">
+                                                                        <p class="mb-1 fw-bold px-2">
+                                                                            @Model.GetKHACHHANGModels.Where(n => n.MaTK == item.MaTK).Select(n => n.HoTen).Take(1).SingleOrDefault()
+                                                                        </p>
+                                                                    </div>
+                                                                    <p class="small mb-0 px-2">
+                                                                        @item.BinhLuan
                                                                     </p>
                                                                 </div>
-                                                                <p class="small mb-0">
-                                                                    @item.BinhLuan
-                                                                </p>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-9"></div>
+                                                            <div class="comment col-md-3">
+                                                                <a href="#" class="mx-2"><i class="fa-solid fa-comment"></i> Trả lời</a>
+                                                                @if (kh != null)
+                                                                {
+                                                                    if (item.MaTK == kh.MaTK)
+                                                                    {
+                                                                        <a href="@Url.Action("XoaBinhLuan","BinhLuan",new { MaSP = @Model.GetSANPHAMModels.Select(n => n.MaSP).Take(1).SingleOrDefault(), MaTK = kh.MaTK,url = Request.Url.ToString()})" class="mx-2"> <i class="fa-solid fa-delete-left"></i> Xóa</a>
+                                                                    }
+                                                                }
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                                }
 
+                                            }
+                                            @if(Model.GetBINHLUANModels.Count() == 0)
+                                            {
+                                                <div class="row mt-1">
+                                                    <div class="col">
+                                                        <h3>KHÔNG CÓ BÌNH LUẬN NÀO HẾT :)))))</h3>
+                                                    </div>
+                                                </div>
+                                            }
                                         </div>
                                     </div>
                                   </div>

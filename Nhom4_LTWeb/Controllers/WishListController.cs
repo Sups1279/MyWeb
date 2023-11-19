@@ -67,8 +67,11 @@ namespace Nhom4_LTWeb.Controllers
         {
             KHACHHANG kh = (KHACHHANG)Session["Username"];
             WISHLIST wl = db.WISHLISTs.Where(n => n.MaSP == masp && kh.MaTK == n.MaTK).Take(1).SingleOrDefault();
-            db.WISHLISTs.DeleteOnSubmit(wl);
-            db.SubmitChanges();
+            if (wl != null)
+            {
+                db.WISHLISTs.DeleteOnSubmit(wl);
+                db.SubmitChanges();
+            }
             return RedirectToAction("WishList","WishList");
         }
 
