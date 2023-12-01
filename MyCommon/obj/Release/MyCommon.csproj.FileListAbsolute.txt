@@ -1,0 +1,6 @@
+D:\MyWebOffical\MyWeb\MyCommon\bin\Release\MyCommon.dll
+D:\MyWebOffical\MyWeb\MyCommon\bin\Release\MyCommon.pdb
+D:\MyWebOffical\MyWeb\MyCommon\obj\Release\MyCommon.csproj.AssemblyReference.cache
+D:\MyWebOffical\MyWeb\MyCommon\obj\Release\MyCommon.csproj.CoreCompileInputs.cache
+D:\MyWebOffical\MyWeb\MyCommon\obj\Release\MyCommon.dll
+D:\MyWebOffical\MyWeb\MyCommon\obj\Release\MyCommon.pdb

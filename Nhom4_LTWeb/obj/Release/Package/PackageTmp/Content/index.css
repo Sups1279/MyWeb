@@ -1,0 +1,42 @@
+.owl-next,.owl-prev{
+    width:35px;
+    height: 100px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    top:50%;
+    position: absolute;
+}
+.owl-nav{
+    position: absolute;
+    width: 100%;
+    top:30%;
+}
+button.owl-next{
+    right:30px;
+}
+button.owl-prev{
+    left:0px;
+}
+a.wishList:hover i{
+   color:red;
+}
+a.wishList{
+    text-decoration: none;
+}
+a.wishList i{
+    position: relative;
+    top:50%;
+    size:4px;
+}
+h3.nameproduct{
+    font-size:16px;
+}
+p.MYSP{
+    margin: 0px;
+    font-weight: bold;
+}
+.dropdown:hover > .dropdown-menu{
+    display:block;
+}

@@ -181,6 +181,7 @@
     <Content Include="Content\index.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\style_DN.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -211,6 +212,7 @@
     <Content Include="image\goblin_SL.jpg" />
     <Content Include="image\logo.png" />
     <Content Include="image\yck5pgoudbuw_sjiz62z2u8nta-06bkv_66gcq_byom.jpeg" />
+    <Content Include="image\z4898102154441_14262231d5e68fd7aedfd9523c28ac65.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -245,6 +247,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="User\newOrder.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -276,12 +279,11 @@
     <Content Include="Views\LocSanPham\SanDuLieu.cshtml" />
     <Content Include="Views\WishList\WishList.cshtml" />
     <Content Include="Views\WishList\WishListPartial.cshtml" />
-    <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
     <Content Include="Views\BinhLuan\CommentPartial.cshtml" />
+    <Content Include="Views\GioHang\XacNhanThanhCong.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="User\" />
     <Folder Include="Views\SearchItem\" />
   </ItemGroup>
   <ItemGroup>
@@ -314,6 +316,12 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyCommon\MyCommon.csproj">
+      <Project>{17cb5c60-8cbf-4a7f-a477-cfc5803f1149}</Project>
+      <Name>MyCommon</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

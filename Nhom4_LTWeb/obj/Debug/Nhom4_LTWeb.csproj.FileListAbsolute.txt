@@ -168,3 +168,5 @@ D:\MyWebOffical\MyWeb\Nhom4_LTWeb\bin\PagedList.dll
 D:\MyWebOffical\MyWeb\Nhom4_LTWeb\bin\PagedList.Mvc.dll
 D:\MyWebOffical\MyWeb\Nhom4_LTWeb\bin\PagedList.xml
 D:\MyWebOffical\MyWeb\Nhom4_LTWeb\bin\PagedList.Mvc.xml
+D:\MyWebOffical\MyWeb\Nhom4_LTWeb\bin\MyCommon.dll
+D:\MyWebOffical\MyWeb\Nhom4_LTWeb\bin\MyCommon.pdb

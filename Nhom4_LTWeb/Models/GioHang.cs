@@ -23,7 +23,7 @@ namespace Nhom4_LTWeb.Models
             iMasp = mSP;
             SANPHAM s = db.SANPHAMs.Where(n => n.MaSP == mSP).SingleOrDefault();
             sTenSP = s.TenSP;
-            sAnhBia = s.HinhAnh;
+            sAnhBia = s.HinhAnh.Trim().ToString();
             dDonGia = (double)s.GiaSP;
             iSoLuong = 1;
         }

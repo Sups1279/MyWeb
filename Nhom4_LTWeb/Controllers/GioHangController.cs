@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MyCommon;
+using System.Net.Sockets;
 
 namespace Nhom4_LTWeb.Controllers
 {
@@ -156,11 +158,10 @@ namespace Nhom4_LTWeb.Controllers
             KHACHHANG khach = (KHACHHANG)Session["Username"];
             List<GioHang> ds = layGioHang();
             ddh.MaTK = khach.MaTK;
-            ddh.NgayDat = DateTime.Now;
-            var NgayGiao = String.Format("{0:MM//dd/yyyy}", f["NgayGiao"]);
-            ddh.NgayGiao = DateTime.Parse(NgayGiao);
+      
             ddh.TinhTrangDonHang = "true";
             ddh.DaThanhToan = false;
+            ddh.DiaChi = f["Address"];
             db.DONHANGs.InsertOnSubmit(ddh);
             db.SubmitChanges();
             foreach (var item in ds)
@@ -173,12 +174,37 @@ namespace Nhom4_LTWeb.Controllers
                 db.CHITIETDATHANGs.InsertOnSubmit(ctdh);
             }
             db.SubmitChanges();
-            Session["GioHang"] = null;
-            return RedirectToAction("XacNhanDonHang", "GioHang");
+            return Redirect(Url.Action("XacNhanDonHang","GioHang", new {Address=ddh.DiaChi}));
         }
-        public ActionResult XacNhanDonHang(FormCollection f)
+        public ActionResult XacNhanDonHang(string Address)
         {
-            
+            List<GioHang> listgh = (List<GioHang>)Session["GioHang"];
+            KHACHHANG kh = (KHACHHANG)Session["Username"];
+            double total = 0;
+            var customer = kh.HoTen;
+            var SDT = kh.SDT;
+            var DiaChi = Address;
+            var toTal = 0.0;
+            foreach(var item in listgh)
+            {
+                toTal += item.dDonGia;
+            }
+            try
+            {
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/User/newOrder.html"));
+                content = content.Replace("{{CustomerName}}", customer.ToString());
+                content = content.Replace("{{SDT}}", SDT.ToString());
+                content = content.Replace("{{Address}}", DiaChi.ToString());
+                content = content.Replace("{{ToTal}}", toTal.ToString());
+                new MailHelper().sendMail(kh.Email, "Đơn giao hàng của bạn nè", content.ToString());
+            }catch(Exception ex)
+            {
+                return Redirect(Url.Action("Index", "Shop"));
+            }
+            return Redirect(Url.Action("XacNhanThanhCong","GioHang"));
+        }
+        public ActionResult XacNhanThanhCong()
+        {
             return View();
         }
     }
